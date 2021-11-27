@@ -13,11 +13,12 @@ class CreateQuanHuyensTable extends Migration
      */
     public function up()
     {
-        Schema::create('quan_huyens', function (Blueprint $table) {
-            $table->id();
-            $table->string("TENQUAN_HUYEN");
-            $table->timestamps();
-        });
+        // Schema::create('quanhuyen', function (Blueprint $table) {
+        //     $table->string("maqh",5)->primary();
+        //     $table->string("name");
+        //     $table->string("type");
+        //     $table->string("matp",5);
+        // });
     }
 
     /**
@@ -27,6 +28,6 @@ class CreateQuanHuyensTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('quan_huyens');
+        //Schema::dropIfExists('quanhuyen');
     }
 }

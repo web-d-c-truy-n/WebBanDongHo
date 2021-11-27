@@ -13,11 +13,11 @@ class CreateTinhThanhsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tinh_thanhs', function (Blueprint $table) {
-            $table->id();
-            $table->string("TENTINH");
-            $table->timestamps();
-        });
+        // Schema::create('tinhthanhpho', function (Blueprint $table) {
+        //     $table->string("matp",5)->primary();
+        //     $table->string("name");
+        //     $table->string("type");
+        // });
     }
 
     /**
@@ -27,6 +27,6 @@ class CreateTinhThanhsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tinh_thanhs');
+        //Schema::dropIfExists('tinhthanhpho');
     }
 }

@@ -3,8 +3,9 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
-class CreatePhuongXasTable extends Migration
+class DbNhapCacTinhThanh extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +14,8 @@ class CreatePhuongXasTable extends Migration
      */
     public function up()
     {
-        // Schema::create('xaphuongthitran', function (Blueprint $table) {
-        //     $table->string("xaid",5)->primary();
-        //     $table->string("name");
-        //     $table->string("type");
-        //     $table->string("maqh",5);
-        // });
+        //
+        //DB::unprepared(file_get_contents(storage_path("\\don_vi_hanh_chinh.sql")));
     }
 
     /**
@@ -28,6 +25,6 @@ class CreatePhuongXasTable extends Migration
      */
     public function down()
     {
-        //Schema::dropIfExists('xaphuongthitran');
+        //
     }
 }

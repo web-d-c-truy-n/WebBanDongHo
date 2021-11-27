@@ -25,9 +25,9 @@ class CreateUsersTable extends Migration
             $table->integer('TRANGTHAI')->nullable();
             $table->string('DIACHI')->nullable();
             $table->string('GHICHU')->nullable();
-            $table->integer('MATINH')->nullable();
-            $table->integer('MAQUAN_HUYEN')->nullable();
-            $table->integer('MAPHUONG_XA')->nullable();
+            $table->string('MATINH',5)->nullable();
+            $table->string('MAQUAN_HUYEN',5)->nullable();
+            $table->string('MAPHUONG_XA')->nullable();
             $table->integer('VAITRO')->nullable();
             $table->string('FACEBOOK_ID')->nullable();
             $table->rememberToken();

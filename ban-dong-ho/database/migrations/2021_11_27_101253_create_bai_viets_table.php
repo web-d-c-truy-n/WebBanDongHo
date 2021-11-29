@@ -22,6 +22,7 @@ class CreateBaiVietsTable extends Migration
             $table->bigInteger("KHACHHANG");
             $table->integer("DADUYET");
             $table->timestamps();
+            $table->engine = 'InnoDB';
         });
     }
 

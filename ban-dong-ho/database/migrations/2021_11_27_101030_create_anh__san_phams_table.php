@@ -18,6 +18,7 @@ class CreateAnhSanPhamsTable extends Migration
             $table->bigInteger("MASANPHAM");
             $table->integer("THUTU");
             $table->timestamps();
+            $table->engine = 'InnoDB';
         });
     }
 

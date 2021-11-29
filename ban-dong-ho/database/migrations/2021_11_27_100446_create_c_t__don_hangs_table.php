@@ -20,6 +20,7 @@ class CreateCTDonHangsTable extends Migration
             $table->integer("GIABAN");
             $table->integer("GIAKHUYENMAI");
             $table->timestamps();
+            $table->engine = 'InnoDB';
         });
     }
 

@@ -17,6 +17,7 @@ class CreateHinhAnhsTable extends Migration
             $table->id();
             $table->string("URL");
             $table->timestamps();
+            $table->engine = 'InnoDB';
         });
     }
 

@@ -21,6 +21,7 @@ class CreateHanhDongNguoiDungsTable extends Migration
             $table->bigInteger("PHANHOI");
             $table->string("GHICHU");
             $table->timestamps();
+            $table->engine = 'InnoDB';
         });
     }
 

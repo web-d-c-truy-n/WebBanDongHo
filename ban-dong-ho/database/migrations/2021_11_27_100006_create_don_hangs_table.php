@@ -22,6 +22,7 @@ class CreateDonHangsTable extends Migration
             $table->string("GHICHU");
             $table->string("TRANGTHAI");
             $table->timestamps();
+            $table->engine = 'InnoDB';
         });
     }
 

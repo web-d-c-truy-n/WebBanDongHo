@@ -32,6 +32,7 @@ class CreateUsersTable extends Migration
             $table->string('FACEBOOK_ID')->nullable();
             $table->rememberToken();
             $table->timestamps();
+            $table->engine = 'InnoDB';
         });
     }
 

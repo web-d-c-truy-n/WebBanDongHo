@@ -18,6 +18,7 @@ class CreateThuongHieusTable extends Migration
             $table->string("TENTHUONGHIEU");
             $table->string("GHICHU");
             $table->timestamps();
+            $table->engine = 'InnoDB';
         });
     }
 

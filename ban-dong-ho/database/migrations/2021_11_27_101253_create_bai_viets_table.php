@@ -16,7 +16,7 @@ class CreateBaiVietsTable extends Migration
         Schema::create('bai_viets', function (Blueprint $table) {
             $table->id();
             $table->string("TENBAIVIET");
-            $table->bigInteger("HINHDAIDIEN");
+            $table->bigInteger("HINHDAIDIEN")->unsigned();
             $table->text("NOIDUNGTOMTAT");
             $table->text("NOIDUNG");
             $table->bigInteger("KHACHHANG");

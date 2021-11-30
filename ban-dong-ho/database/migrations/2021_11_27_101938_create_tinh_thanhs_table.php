@@ -13,11 +13,13 @@ class CreateTinhThanhsTable extends Migration
      */
     public function up()
     {
-        // Schema::create('tinhthanhpho', function (Blueprint $table) {
-        //     $table->string("matp",5)->primary();
-        //     $table->string("name");
-        //     $table->string("type");
-        // });
+        Schema::create('tinhthanhpho', function (Blueprint $table) {
+            $table->id();
+            $table->string("matp",5);
+            $table->string("name");
+            $table->string("type");
+            $table->engine = 'InnoDB';
+        });
     }
 
     /**
@@ -27,6 +29,6 @@ class CreateTinhThanhsTable extends Migration
      */
     public function down()
     {
-        //Schema::dropIfExists('tinhthanhpho');
+        Schema::dropIfExists('tinhthanhpho');
     }
 }

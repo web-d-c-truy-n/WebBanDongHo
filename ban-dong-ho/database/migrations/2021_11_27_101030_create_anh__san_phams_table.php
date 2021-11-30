@@ -14,8 +14,8 @@ class CreateAnhSanPhamsTable extends Migration
     public function up()
     {
         Schema::create('anh_san_phams', function (Blueprint $table) {
-            $table->bigInteger("MAANH");
-            $table->bigInteger("MASANPHAM");
+            $table->bigInteger("MAANH")->unsigned();
+            $table->bigInteger("MASANPHAM")->unsigned();
             $table->integer("THUTU");
             $table->timestamps();
             $table->engine = 'InnoDB';

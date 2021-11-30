@@ -15,7 +15,8 @@ class CreateCTDonHangsTable extends Migration
     {
         Schema::create('ct_don_hangs', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger("SODONHANG");
+            $table->bigInteger("SODONHANG")->unsigned();
+            $table->bigInteger("MASANPHAM")->unsigned();
             $table->integer("SOLUONG");
             $table->integer("GIABAN");
             $table->integer("GIAKHUYENMAI");

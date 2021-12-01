@@ -13,12 +13,14 @@ class CreateQuanHuyensTable extends Migration
      */
     public function up()
     {
-        // Schema::create('quanhuyen', function (Blueprint $table) {
-        //     $table->string("maqh",5)->primary();
-        //     $table->string("name");
-        //     $table->string("type");
-        //     $table->string("matp",5);
-        // });
+        Schema::create('quanhuyen', function (Blueprint $table) {
+            $table->id();
+            $table->string("maqh",5);
+            $table->string("name");
+            $table->string("type");
+            $table->string("matp",5);
+            $table->engine = 'InnoDB';
+        });
     }
 
     /**
@@ -28,6 +30,6 @@ class CreateQuanHuyensTable extends Migration
      */
     public function down()
     {
-        //Schema::dropIfExists('quanhuyen');
+        Schema::dropIfExists('quanhuyen');
     }
 }

@@ -13,12 +13,14 @@ class CreatePhuongXasTable extends Migration
      */
     public function up()
     {
-        // Schema::create('xaphuongthitran', function (Blueprint $table) {
-        //     $table->string("xaid",5)->primary();
-        //     $table->string("name");
-        //     $table->string("type");
-        //     $table->string("maqh",5);
-        // });
+        Schema::create('xaphuongthitran', function (Blueprint $table) {
+            $table->id();
+            $table->string("xaid",5);
+            $table->string("name");
+            $table->string("type");
+            $table->string("maqh",5);
+            $table->engine = 'InnoDB';
+        });
     }
 
     /**
@@ -28,6 +30,6 @@ class CreatePhuongXasTable extends Migration
      */
     public function down()
     {
-        //Schema::dropIfExists('xaphuongthitran');
+        Schema::dropIfExists('xaphuongthitran');
     }
 }

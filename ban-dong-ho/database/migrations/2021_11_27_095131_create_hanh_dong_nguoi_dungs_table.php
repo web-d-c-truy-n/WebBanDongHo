@@ -15,11 +15,11 @@ class CreateHanhDongNguoiDungsTable extends Migration
     {
         Schema::create('hanh_dong_nguoi_dungs', function (Blueprint $table) {
             $table->id();// id này là mã rồi
-            $table->bigInteger("MASANPHAM");
-            $table->bigInteger("MANGUOIDUNG");
+            $table->bigInteger("MASANPHAM")->unsigned()->nullable();
+            $table->bigInteger("MANGUOIDUNG")->unsigned()->nullable();
             $table->integer("LOAIHANHDONG");
-            $table->bigInteger("PHANHOI");
-            $table->string("GHICHU");
+            $table->bigInteger("PHANHOI")->unsigned()->nullable();
+            $table->string("GHICHU")->nullable();
             $table->timestamps();
             $table->engine = 'InnoDB';
         });

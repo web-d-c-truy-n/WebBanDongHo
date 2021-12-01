@@ -15,7 +15,7 @@ class DbNhapCacTinhThanh extends Migration
     public function up()
     {
         //
-        //DB::unprepared(file_get_contents(storage_path("\\don_vi_hanh_chinh.sql")));
+        DB::unprepared(file_get_contents(storage_path("\\don_vi_hanh_chinh.sql")));
     }
 
     /**

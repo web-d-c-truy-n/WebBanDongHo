@@ -16,14 +16,14 @@ class CreateSanPhamsTable extends Migration
         Schema::create('san_phams', function (Blueprint $table) {
             $table->id(); // mã sản phẩm
             $table->string("TENSP");
-            $table->bigInteger("HINHDAIDIEN");
+            $table->bigInteger("HINHDAIDIEN")->unsigned();
             $table->string("NDTOMTAT");
             $table->text("NOIDUNG");
-            $table->bigInteger("NGUOIDANG");
+            $table->bigInteger("NGUOIDANG")->unsigned();
             $table->integer("DADUYET");
             $table->integer("GIABAN");
             $table->integer("GIAMGIA");
-            $table->bigInteger("MATHUONGHIEU");
+            $table->bigInteger("MATHUONGHIEU")->unsigned();
             $table->string("DONVITINH");            
             $table->timestamps();
             $table->engine = 'InnoDB';

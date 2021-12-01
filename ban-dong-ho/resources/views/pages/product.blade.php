@@ -1,7 +1,10 @@
 @extends('layout')
-@section('css','js')
+@section('css')
 
-@section('rederbody')// vậy lấy cái section css ra đi cái anh vừa thêm vào á
+@endsection
+@section("js")
+@endsection
+@section('rederbody')
 <div class="parts">
     <div class="container">
         <h2>BIKE-PARTS ALL</h2>

@@ -21,4 +21,7 @@ class HomeController extends Controller
     public function information(){
         return view('pages.information');
     }
+    public function dangnhap(){
+        return view('pages.login');
+    }
 }

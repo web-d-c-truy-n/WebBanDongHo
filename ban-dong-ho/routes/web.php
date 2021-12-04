@@ -24,3 +24,10 @@ Route::get('/gio-hang','HomeController@cart');
 Route::get('/san-pham','HomeController@products');
 Route::get('/thong-tin-san-pham','HomeController@information');
 Route::get('/danh-sach-san-pham','HomeController@listproducts');
+Route::get('/dang-nhap','HomeController@dangnhap');
+
+Route::prefix('admin')->group(function () {
+    Route::get('index', function () {
+        return view('pages.login');
+    });
+});

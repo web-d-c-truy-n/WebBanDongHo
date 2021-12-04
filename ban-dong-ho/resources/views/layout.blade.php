@@ -1,8 +1,9 @@
 <html><head>
     <title>Bike Shop a Ecommerce Category Flat Bootstarp Responsive Website Template| Parts :: w3layouts</title>
-    <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <!-- jQuery (Bootstrap's JavaScript plugins) -->
-    <script src="{{asset('js/jquery.min.js')}}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <!-- Custom Theme files -->
     <link href="{{asset('css/form.css')}}" rel="stylesheet" type="text/css" media="all">
     <link href="css/style.css" rel="stylesheet" type="text/css" media="all">
@@ -72,12 +73,8 @@
                                             <li><a href="accessories.html">JERSEYS</a></li>
                                   </ul>
                              </li>               
-                             <li class="dropdown1"><a href="404.html">EXTRAS</a>
-                                 <ul class="dropdown2">
-                                        <li><a href="404.html">CLASSIC BELL</a></li>
-                                        <li><a href="404.html">BOTTLE CAGE</a></li>
-                                        <li><a href="404.html">TRUCK GRIP</a></li>
-                                  </ul>
+                             <li class="dropdown1"><a href="#" class="openModal">TÀI KHOẢN</a>
+                               
                              </li>
                               <a class="shop" href="cart.html"><img src="images/cart.png" alt=""></a>
                           </ul>
@@ -104,6 +101,7 @@
             <div class="clearfix"></div>
          </div>
     </div>
+    @include('common.login')
     <!---->
     @yield("js")
     </body>

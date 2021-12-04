@@ -28,6 +28,15 @@ Route::get('/dang-nhap','HomeController@dangnhap');
 
 Route::prefix('admin')->group(function () {
     Route::get('index', function () {
-        return view('pages.login');
+        return view('admin.index');
+    });
+    Route::get('login',function(){
+        return view('admin.login');
+    });
+    Route::get('register',function(){
+        return view('admin.register');
+    });
+    Route::get('order',function(){
+        return view('admin.order');
     });
 });

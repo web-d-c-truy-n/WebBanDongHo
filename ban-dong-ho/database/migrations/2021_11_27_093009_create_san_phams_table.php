@@ -16,6 +16,7 @@ class CreateSanPhamsTable extends Migration
         Schema::create('san_phams', function (Blueprint $table) {
             $table->id(); // mã sản phẩm
             $table->string("TENSP");
+            $table->string("DUONGDAN");
             $table->bigInteger("HINHDAIDIEN")->unsigned();
             $table->string("NDTOMTAT");
             $table->text("NOIDUNG");

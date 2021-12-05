@@ -16,6 +16,7 @@ class CreateHinhAnhsTable extends Migration
         Schema::create('hinh_anhs', function (Blueprint $table) {
             $table->id();
             $table->string("URL");
+            $table->string("THUMUC");
             $table->timestamps();
             $table->engine = 'InnoDB';
         });

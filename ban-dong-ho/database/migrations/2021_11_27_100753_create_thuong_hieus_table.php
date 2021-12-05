@@ -16,6 +16,7 @@ class CreateThuongHieusTable extends Migration
         Schema::create('thuong_hieus', function (Blueprint $table) {
             $table->id();
             $table->string("TENTHUONGHIEU");
+            $table->string("DUONGDAN");
             $table->string("GHICHU");
             $table->timestamps();
             $table->engine = 'InnoDB';

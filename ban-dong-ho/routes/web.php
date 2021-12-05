@@ -40,3 +40,12 @@ Route::prefix('admin')->group(function () {
         return view('admin.order');
     });
 });
+
+Route::get('test', function(){
+    return view('test');
+});
+Route::prefix('ajax')->group(function () {
+    Route::post('restore', 'BackupController@Restore');   
+    Route::get('backup', 'BackupController@Backup');   
+});
+

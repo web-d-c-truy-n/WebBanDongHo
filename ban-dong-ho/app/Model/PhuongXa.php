@@ -7,4 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class PhuongXa extends Model
 {
     //
+    protected $table = "xaphuongthitran";
 }

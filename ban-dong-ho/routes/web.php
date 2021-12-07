@@ -27,7 +27,7 @@ Route::get('/danh-sach-san-pham','HomeController@listproducts');
 Route::get('/dang-nhap','HomeController@dangnhap');
 
 Route::prefix('admin')->group(function () {
-    Route::get('index', function () {
+    Route::get('/', function () {
         return view('admin.index');
     });
     Route::get('login',function(){

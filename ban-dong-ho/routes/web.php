@@ -27,18 +27,11 @@ Route::get('/danh-sach-san-pham','HomeController@listproducts');
 Route::get('/dang-nhap','HomeController@dangnhap');
 
 Route::prefix('admin')->group(function () {
-    Route::get('/', function () {
-        return view('admin.index');
-    });
-    Route::get('login',function(){
-        return view('admin.login');
-    });
-    Route::get('register',function(){
-        return view('admin.register');
-    });
-    Route::get('order',function(){
-        return view('admin.order');
-    });
+    Route::get('/', 'AdminController@Index');
+    Route::get('login','AdminController@login');
+    Route::get('register','AdminController@register');
+    Route::get('order','AdminController@order');
+    Route::post('admin_login', 'AdminController@Admin_Login');
 });
 
 Route::get('test', function(){
@@ -48,4 +41,5 @@ Route::prefix('ajax')->group(function () {
     Route::post('restore', 'BackupController@Restore');   
     Route::get('backup', 'BackupController@Backup');   
 });
+
 

@@ -49,13 +49,13 @@
                    <li class="nav-item">
                      <a class="nav-link" href="map.html">
                        <i class="ni ni-pin-3 text-primary"></i>
-                       <span class="nav-link-text">Google</span>
+                       <span class="nav-link-text">Sản phẩm</span>
                      </a>
                    </li>
                    <li class="nav-item">
                      <a class="nav-link" href="profile.html">
                        <i class="ni ni-single-02 text-yellow"></i>
-                       <span class="nav-link-text">Profile</span>
+                       <span class="nav-link-text">Thông tin cá nhân</span>
                      </a>
                    </li>
                    <li class="nav-item">

@@ -42,7 +42,7 @@
           <div class="container">
                  <div class="header">
                        <div class="logo">
-                             <a href="index.html"><img src="images/logo.png" alt=""></a>
+                             <a href="/"><img src="{{asset('images/Tp_watch__2_-removebg-preview.png')}}" class="imglogo" alt=""></a>
                        </div>							 
                       <div class="top-nav">										 
                             <label class="mobile_menu" for="mobile_menu">
@@ -88,14 +88,14 @@
     <div class="footer">
          <div class="container wrap">
             <div class="logo2">
-                 <a href="index.html"><img src="images/logo2.png" alt=""></a>
+                 <a href="/"><img src="{{asset('images/Tp_watch__2_-removebg-preview.png')}}" class="imglogo2" alt=""></a>
             </div>
             <div class="ftr-menu">
                  <ul>
-                     <li><a href="bicycles.html">BICYCLES</a></li>
-                     <li><a href="parts.html">PARTS</a></li>
-                     <li><a href="accessories.html">ACCESSORIES</a></li>
-                     <li><a href="404.html">EXTRAS</a></li>
+                     <li><a href="bicycles.html">SẢN PHẨM</a></li>
+                     <li><a href="parts.html">BLOG</a></li>
+                     <li><a href="accessories.html">LIÊN HỆ</a></li>
+                     <li><a href="404.html">TÀI KHOẢN</a></li>
                  </ul>
             </div>
             <div class="clearfix"></div>

@@ -59,7 +59,7 @@ a.shop{
 .caption{
 	width: 100%;
 	position: absolute;
-	top: 42%;
+	top: 20%;
 	left: 0%;
 	text-align:center;
 }
@@ -330,22 +330,28 @@ select{
 .nbs-flexisel-item:hover div.viw{
 	display:block;
 }
+.imglogo{
+	width:40%;
+}
+.imglogo2{
+	width: 20%;
+}
 /*--contact--*/
 .contact{
-	background:url(../images/contact.jpg) no-repeat 0px 0px;
+	background:url(../images/1920x1080_px_Clocks_Clockwork_gold_photography-544375.jpg) no-repeat 0px 0px;
 	min-height:560px;
 	background-size:cover;
 	text-align:center;
 	padding:4em 0;
 }
 .contact h3{
-	color: #000;
+	color: #fcff19;
   font-size: 2em;
   font-weight: 600;
   margin-bottom:0.7em;
 }
 .contact p{
-  color: #000;
+  color: #fcff19;
   font-size: 1.15em;
   font-weight: 500;
 }
@@ -403,7 +409,8 @@ select{
 }
 /*--footer--*/
 .footer{
-	background:#fcff19;
+	background: rgb(2,0,36);
+	background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 34%, rgba(210,224,17,1) 75%);
 	padding:1.5em;
 }
 .logo2{
@@ -426,7 +433,7 @@ select{
 }
 /*--bycycle--*/
 .banner-sec{
-	background:url(../images/bg.jpg) no-repeat;
+	background:url(../images/marq-all-hero-new02-1.jpg) no-repeat;
 	background-size:cover;
 	min-height:200px;
 }

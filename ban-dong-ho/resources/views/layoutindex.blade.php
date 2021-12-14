@@ -54,9 +54,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	  <div class="container">
 			 <div class="header">
 			       <div class="logo">
-						 <a href="/"><img src="images/logo.png" alt=""/></a>
+						 <a href="/"><img src="{{asset('images/Tp_watch__2_-removebg-preview.png')}}" class="imglogo" alt=""/></a>
 				   </div>							 
-				  <div class="top-nav">										 
+				  <div class="top-nav">										  
 						<label class="mobile_menu" for="mobile_menu">
 						<span>Menu</span>
 						</label>
@@ -98,12 +98,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		 <div class="slider">
 					   <div class="callbacks_container">
 						   <ul class="rslides" id="slider">
-							    <li><h1>HANDMADE BICYCLE</h1></li>
+							    <li><h1>WATCHES</h1></li>
 								<li><h1>SPEED BICYCLE</h1></li>	
 								<li><h1>MOUINTAIN BICYCLE</h1></li>	
 						  </ul>
-						  <p>You <span>create</span> the <span>journey,</span> we supply the <span>parts</span></p>
-						  <a class="morebtn" href="bicycles.html">SHOP BIKES</a>
+						  <p>Phần lớn mọi người dùng điện thoại để xem giờ<br/> nhưng <span><b>đồng hồ</b></span> vẫn luôn mang <span><b>vẻ đẹp</b></span> và <span><b>hấp dẫn riêng</b></span></p>
+						  <a class="morebtn" href="bicycles.html"><b>SHOP WATCHES</b></a>
 					  </div>
 				  </div>
 	 </div>
@@ -140,14 +140,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="footer">
 	 <div class="container wrap">
 		<div class="logo2">
-			 <a href="index.html"><img src="images/logo2.png" alt=""/></a>
+			 <a href="/"><img src="{{asset('images/Tp_watch__2_-removebg-preview.png')}}" class="imglogo2"alt=""/></a>
 		</div>
 		<div class="ftr-menu">
 			 <ul>
-				 <li><a href="bicycles.html">BICYCLES</a></li>
-				 <li><a href="parts.html">PARTS</a></li>
-				 <li><a href="accessories.html">ACCESSORIES</a></li>
-				 <li><a href="404.html">EXTRAS</a></li>
+				 <li><a href="bicycles.html">SẢN PHẨM</a></li>
+				 <li><a href="parts.html">BLOG</a></li>
+				 <li><a href="accessories.html">LIÊN HỆ</a></li>
+				 <li><a href="404.html">TÀI KHOẢN</a></li>
 			 </ul>
 		</div>
 		<div class="clearfix"></div>

@@ -62,14 +62,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</label>
 						<input id="mobile_menu" type="checkbox">
 					   <ul class="nav">
-						  <li class="dropdown1"><a href="bicycles.html">BICYCLES</a>
+						  <li class="dropdown1"><a href="{{URL::to("/san-pham")}}">Sản phẩm</a>
 							  <ul class="dropdown2">
 									<li><a href="bicycles.html">FIXED / SINGLE SPEED</a></li>
 									<li><a href="bicycles.html">CITY BIKES</a></li>
 									<li><a href="bicycles.html">PREMIMUN SERIES</a></li>												
 							  </ul>
 						  </li>
-						  <li class="dropdown1"><a href="parts.html">PARTS</a>
+						  <li class="dropdown1"><a href="parts.html">Blog</a>
 							 <ul class="dropdown2">
 									<li><a href="parts.html">CHAINS</a></li>
 									<li><a href="parts.html">TUBES</a></li>
@@ -77,7 +77,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<li><a href="parts.html">DISC BREAKS</a></li>
 							  </ul>
 						 </li>      
-						 <li class="dropdown1"><a href="accessories.html">ACCESSORIES</a>
+						 <li class="dropdown1"><a href="accessories.html">Liên hệ</a>
 							 <ul class="dropdown2">
 									<li><a href="accessories.html">LOCKS</a></li>
 										<li><a href="accessories.html">HELMETS</a></li>

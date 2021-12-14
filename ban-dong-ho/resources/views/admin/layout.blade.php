@@ -49,7 +49,7 @@
                    <li class="nav-item">
                      <a class="nav-link" href="map.html">
                        <i class="ni ni-pin-3 text-primary"></i>
-                       <span class="nav-link-text">Sản phẩm</span>
+                       <span class="nav-link-text">Thêm Sản phẩm</span>
                      </a>
                    </li>
                    <li class="nav-item">

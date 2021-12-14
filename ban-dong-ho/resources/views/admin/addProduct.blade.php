@@ -2,3 +2,6 @@
 @section('css')
     
 @endsection
+@section('renderbody')
+
+@endsection

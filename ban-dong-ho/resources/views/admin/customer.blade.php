@@ -1,23 +1,26 @@
 @extends('admin.layout')
+@section('css')
+    
+@endsection
 @section('renderbody')
-  <div class="container-fluid mt--6">
+<div class="container-fluid mt--6">
     <div class="row">
       <div class="col">
         <div class="card">
           <!-- Card header -->
           <div class="card-header border-0">
-            <h3 class="mb-0">Đơn hàng</h3>
+            <h3 class="mb-0">Thành viên</h3><a href="{{URL::to('/admin/them-san-pham')}}">Thêm mới</a>
           </div>
           <!-- Light table -->
           <div class="table-responsive">
             <table class="table align-items-center table-flush">
               <thead class="thead-light">
                 <tr>
-                  <th scope="col" class="sort" data-sort="name">Khách hàng</th>
-                  <th scope="col" class="sort" data-sort="budget">Tổng tiền</th>
-                  <th scope="col" class="sort" data-sort="status">Tình trạng</th>
-                  <th scope="col">Ngày</th>
-                  <th scope="col" class="sort" data-sort="completion">Địa chỉ</th>
+                  <th scope="col" class="sort" data-sort="name">Tên người dùng</th>
+                  <th scope="col" class="sort" data-sort="budget">Tên</th>
+                  <th scope="col" class="sort" data-sort="status">Email</th>
+                  <th scope="col">Bài viết</th>
+                  <th scope="col" class="sort" data-sort="completion">Vai trò</th>
                   <th scope="col"></th>
                 </tr>
               </thead>
@@ -34,19 +37,16 @@
                     </div>
                   </th>
                   <td class="budget">
-                    2,000,000 VNĐ
+                    Họ tên
                   </td>
-                  <td>
-                    <span class="badge badge-dot mr-4">
-                      <i class="bg-warning"></i>
-                      <span class="status">Đang xử lý</span>
-                    </span>
+                  <td class="budget">
+                    Mail
                   </td>
-                  <td>
-                    14/12/2021
+                  <td class="budget">
+                    Bài viết
                   </td>
-                  <td>
-                    Địa chỉ
+                  <td class="budget">
+                    Vai trò
                   </td>
                   <td class="text-right">
                     <div class="dropdown">
@@ -54,9 +54,9 @@
                         <i class="fas fa-ellipsis-v"></i>
                       </a>
                       <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                        <a class="dropdown-item" href="#">Đang xử lý</a>
-                        <a class="dropdown-item" href="#">Đang vận chuyển</a>
-                        <a class="dropdown-item" href="#">Hoàn tất</a>
+                        <a class="dropdown-item" href="#">Sửa</a>
+                        <a class="dropdown-item" href="#">Xóa</a>
+                       
                       </div>
                     </div>
                   </td>
@@ -94,6 +94,4 @@
         </div>
       </div>
     </div>
- 
-  </div>
 @endsection

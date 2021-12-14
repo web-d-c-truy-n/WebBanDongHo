@@ -35,43 +35,43 @@
                  <!-- Nav items -->
                  <ul class="navbar-nav">
                    <li class="nav-item">
-                     <a class="nav-link active" href="dashboard.html">
+                     <a class="nav-link active" href="{{URL::to('admin/')}}">
                        <i class="ni ni-tv-2 text-primary"></i>
                        <span class="nav-link-text">Trang chủ</span>
                      </a>
                    </li>
                    <li class="nav-item">
-                     <a class="nav-link" href="icons.html">
+                     <a class="nav-link" href="{{URL::to('/admin/thanh-vien')}}">
                        <i class="ni ni-planet text-orange"></i>
                        <span class="nav-link-text">Khách hàng</span>
                      </a>
                    </li>
                    <li class="nav-item">
-                     <a class="nav-link" href="map.html">
+                     <a class="nav-link" href="{{URL::to('admin/tat-ca-san-pham')}}">
                        <i class="ni ni-pin-3 text-primary"></i>
-                       <span class="nav-link-text">Thêm Sản phẩm</span>
+                       <span class="nav-link-text">Sản phẩm</span>
                      </a>
                    </li>
                    <li class="nav-item">
-                     <a class="nav-link" href="profile.html">
+                     <a class="nav-link" href="{{URL::to('admin/thong-tin-ca-nhan')}}">
                        <i class="ni ni-single-02 text-yellow"></i>
                        <span class="nav-link-text">Thông tin cá nhân</span>
                      </a>
                    </li>
                    <li class="nav-item">
-                     <a class="nav-link" href="tables.html">
+                     <a class="nav-link" href="{{URL::to('admin/order')}}">
                        <i class="ni ni-bullet-list-67 text-default"></i>
                        <span class="nav-link-text">Đơn hàng</span>
                      </a>
                    </li>
                    <li class="nav-item">
-                     <a class="nav-link" href="login.html">
+                     <a class="nav-link" href="{{URL::to('admin/login')}}">
                        <i class="ni ni-key-25 text-info"></i>
                        <span class="nav-link-text">Login</span>
                      </a>
                    </li>
                    <li class="nav-item">
-                     <a class="nav-link" href="register.html">
+                     <a class="nav-link" href="{{URL::to('admin/register')}}">
                        <i class="ni ni-circle-08 text-pink"></i>
                        <span class="nav-link-text">Register</span>
                      </a>
@@ -79,7 +79,7 @@
                    <li class="nav-item">
                      <a class="nav-link" href="upgrade.html">
                        <i class="ni ni-send text-dark"></i>
-                       <span class="nav-link-text">Upgrade</span>
+                       <span class="nav-link-text">Log out</span>
                      </a>
                    </li>
                  </ul>
@@ -328,7 +328,7 @@
                            <img alt="Image placeholder" src="http://localhost:8000/templateAdmin/assets/img/theme/team-4.jpg">
                          </span>
                          <div class="media-body  ml-2  d-none d-lg-block">
-                           <span class="mb-0 text-sm  font-weight-bold">{{Auth::user()->name}}</span>
+                           <span class="mb-0 text-sm  font-weight-bold">{{-- {{Auth::user()->name}} --}}</span>
                          </div>
                        </div>
                      </a>

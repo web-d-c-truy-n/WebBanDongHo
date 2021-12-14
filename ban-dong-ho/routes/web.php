@@ -32,6 +32,11 @@ Route::prefix('admin')->group(function () {
     Route::get('register','AdminController@register');
     Route::get('order','AdminController@order');
     Route::post('admin_login', 'AdminController@Admin_Login');
+    Route::get('/them-san-pham','AdminController@add_product');
+    Route::get('/tat-ca-san-pham','AdminController@product');
+    Route::get('/thanh-vien','AdminController@customer');
+    Route::get('/thong-tin-ca-nhan','AdminController@profile');
+    
 });
 
 Route::get('test', function(){

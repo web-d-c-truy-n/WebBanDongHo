@@ -25,6 +25,18 @@ class AdminController extends Controller
     public function order(){
         return view('admin.order');
     }
+    public function add_product(){
+        return view('admin.addProduct');
+    }
+    public function product(){
+        return view('admin.product');
+    }
+    public function customer(){
+        return view('admin.customer');
+    }
+    public function profile(){
+        return  view('admin.profile');
+    }
     public function Admin_Login(Request $request){
         $username = $request -> username;
         $pass = $request -> password;

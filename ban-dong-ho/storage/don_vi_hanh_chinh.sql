@@ -1,25 +1,6 @@
-/*
-Navicat MySQL Data Transfer
-
-Source Server         : localhost
-Source Server Version : 50625
-Source Host           : localhost:3306
-Source Database       : dia_gioi_hanh_chinh
-
-Target Server Type    : MYSQL
-Target Server Version : 50625
-File Encoding         : 65001
-
-Date: 2016-12-23 01:52:24
-*/
-
 SET FOREIGN_KEY_CHECKS=0;
--- ----------------------------
--- Table structure for `quanhuyen`
--- ----------------------------
--- ----------------------------
--- Records of quanhuyen
--- ----------------------------
+set global net_buffer_length=1000000; 
+set global max_allowed_packet=1000000000;
 INSERT INTO `quanhuyen` VALUES (DEFAULT,'001', 'Quận Ba Đình', 'Quận', '01');
 INSERT INTO `quanhuyen` VALUES (DEFAULT,'002', 'Quận Hoàn Kiếm', 'Quận', '01');
 INSERT INTO `quanhuyen` VALUES (DEFAULT,'003', 'Quận Tây Hồ', 'Quận', '01');
@@ -733,13 +714,6 @@ INSERT INTO `quanhuyen` VALUES (DEFAULT,'970', 'Huyện Đầm Dơi', 'Huyện',
 INSERT INTO `quanhuyen` VALUES (DEFAULT,'971', 'Huyện Năm Căn', 'Huyện', '96');
 INSERT INTO `quanhuyen` VALUES (DEFAULT,'972', 'Huyện Phú Tân', 'Huyện', '96');
 INSERT INTO `quanhuyen` VALUES (DEFAULT,'973', 'Huyện Ngọc Hiển', 'Huyện', '96');
-
--- ----------------------------
--- Table structure for `tinhthanhpho`
--- ----------------------------
--- ----------------------------
--- Records of tinhthanhpho
--- ----------------------------
 INSERT INTO `tinhthanhpho` VALUES (DEFAULT,'01', 'Thành phố Hà Nội', 'Thành phố Trung ương');
 INSERT INTO `tinhthanhpho` VALUES (DEFAULT,'02', 'Tỉnh Hà Giang', 'Tỉnh');
 INSERT INTO `tinhthanhpho` VALUES (DEFAULT,'04', 'Tỉnh Cao Bằng', 'Tỉnh');
@@ -803,14 +777,6 @@ INSERT INTO `tinhthanhpho` VALUES (DEFAULT,'93', 'Tỉnh Hậu Giang', 'Tỉnh')
 INSERT INTO `tinhthanhpho` VALUES (DEFAULT,'94', 'Tỉnh Sóc Trăng', 'Tỉnh');
 INSERT INTO `tinhthanhpho` VALUES (DEFAULT,'95', 'Tỉnh Bạc Liêu', 'Tỉnh');
 INSERT INTO `tinhthanhpho` VALUES (DEFAULT,'96', 'Tỉnh Cà Mau', 'Tỉnh');
-
--- ----------------------------
--- Table structure for `xaphuongthitran`
--- ----------------------------
-
--- ----------------------------
--- Records of xaphuongthitran
--- ----------------------------
 INSERT INTO `xaphuongthitran` VALUES (DEFAULT,'00001', 'Phường Phúc Xá', 'Phường', '001');
 INSERT INTO `xaphuongthitran` VALUES (DEFAULT,'00004', 'Phường Trúc Bạch', 'Phường', '001');
 INSERT INTO `xaphuongthitran` VALUES (DEFAULT,'00006', 'Phường Vĩnh Phúc', 'Phường', '001');

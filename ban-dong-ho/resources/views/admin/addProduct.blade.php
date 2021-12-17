@@ -152,19 +152,19 @@
                                 <h3 class="mb-0">Thêm sản phẩm</h3>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="#!" class="btn btn-sm btn-primary">Đăng</a>
+                                <a href="#!" class="btn btn-sm btn-primary" id="dang">Đăng</a>
                             </div>
                         </div>
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form id="themSanPham">
                             <h6 class="heading-small text-muted mb-4">Thông tin sản phẩm</h6>
                             <div class="pl-lg-4">
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-name">Tên sản phẩm</label>
-                                            <input type="text" id="input-username" class="form-control"
+                                            <input type="text" id="input-username" class="form-control" name="TENSP"
                                                 placeholder="Name">
                                         </div>
                                     </div>
@@ -172,7 +172,7 @@
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-donvitinh">Đơn vị tính</label>
                                             <input type="email" id="input-email" class="form-control"
-                                                placeholder="Đơn vị tính">
+                                                placeholder="Đơn vị tính" name="DONVITINH">
                                         </div>
                                     </div>
                                 </div>
@@ -181,14 +181,14 @@
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-first-name">Giá bán</label>
                                             <input type="text" id="input-first-name" class="form-control"
-                                                placeholder="Price">
+                                                placeholder="Price" name="GIABAN">
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-last-name">Giá khuyến mãi</label>
                                             <input type="text" id="input-last-name" class="form-control"
-                                                placeholder="Price">
+                                                placeholder="Price" name="GIAMGIA">
                                         </div>
                                     </div>
                                 </div>
@@ -200,7 +200,7 @@
                                         <div class="form-group">
                                             <div class="form-group">
                                                 <h2>Thương hiệu</h2>
-                                                <select class="form-control">
+                                                <select class="form-control" name="MATHUONGHIEU">
                                                     @foreach ($thuongHieu as $th)
                                                         <option value="{{ $th->id }}">{{ $th->TENTHUONGHIEU }}
                                                         </option>
@@ -217,12 +217,11 @@
                                                 <div class="input-group-prepend">
                                                     <button type="button" class="btn btn-danger">Link</button>
                                                 </div>
-                                                <input type="text" class="form-control" placeholder="Đường dẫn">
+                                                <input type="text" class="form-control" placeholder="Đường dẫn"
+                                                    name="DUONGDAN">
                                             </div>
                                         </div>
                                     </div>
-
-
                                 </div>
                             </div>
                             <hr class="my-4">
@@ -232,12 +231,12 @@
                                 <div class="form-group">
                                     <label class="form-control-label">Tóm tắt</label>
                                     <textarea rows="4" class="form-control"
-                                        placeholder="A few words about your product..."></textarea>
+                                        placeholder="A few words about your product..." name="NDTOMTAT"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label class="from-control-label">Nội dung</label>
                                     <div>
-                                        <textarea id="editor"></textarea>
+                                        <textarea id="editor" name="NOIDUNG"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -260,9 +259,9 @@
             </header>
             <div class="modal-body">
                 <div style="height: 300px; overflow: scroll;" id="chenAnh">
-					@foreach ($hinhAnh as $hinh )
-						<img class="anh" src="{{ asset($hinh->URL) }}" />
-					@endforeach
+                    @foreach ($hinhAnh as $hinh)
+                        <img class="anh" id_anh="{{ $hinh->id }}" src="{{ asset($hinh->URL) }}" />
+                    @endforeach
                 </div>
             </div>
             <footer class="modal-footer">
@@ -296,41 +295,86 @@
     </script>
     <script>
         var clickAnh
-		var token = "{{ csrf_token() }}"
-        function chonAnh(){
-			let url = $(this).attr("src");
-                if (clickAnh == 1) {
-                    $("#anhDeODay").html("")
-                    $(`<img class="anhBia" src="${url}" />`).appendTo("#anhDeODay");
-                    modal.classList.remove('open')
-                } else if (clickAnh == 2) {
-                    $(`<img class="album" src="${url}" />`).appendTo("#albumDeODay");
-                }
-		}
-		$(document).ready(function() {			
+        var token = "{{ csrf_token() }}"
+
+        function chonAnh() {
+            let url = $(this).attr("src");
+            let id_anh = $(this).attr("id_anh")
+            if (clickAnh == 1) {
+                $("#anhDeODay").html("")
+
+                $(`<img class="anhBia" id_anh="${id_anh}" src="${url}" />`).appendTo("#anhDeODay");
+                modal.classList.remove('open')
+            } else if (clickAnh == 2) {
+                $(`<img class="album" id_anh="${id_anh}" src="${url}" />`).appendTo("#albumDeODay");
+            }
+        }
+        $(document).ready(function() {
             $(".anh").click(chonAnh)
+            $("#dang").click(function() {
+                let input = $("#themSanPham").serializeArray()
+                let p = {}
+                let idAnhBia = parseInt($("#anhDeODay").find("img").first().attr("id_anh"))
+                let idAlbum = []
+                $("#albumDeODay").find("img").each(function() {
+                    idAlbum.push(parseInt($(this).attr("id_anh")))
+                })
+                input.forEach(function(e) {
+                    p[e.name] = e.value
+                })
+                p["HINHDAIDIEN"] = idAnhBia;
+                p["album"] = idAlbum;
+                p["_token"] = token;
+                $.ajax({
+                    type: "POST",
+                    url: "{{ URL::to('/admin/them-san-pham') }}",
+                    data: p,
+                    dataType: "json",
+                    success: function(rs) {
+                        if (rs.kq == true) {
+                            alert("Thêm thành công")
+                            input.forEach(function(e) {
+                                $(`[name=${e.name}]`).val("")
+                            })
+                            $('#editor').trumbowyg("html","");
+                            $("#albumDeODay").html("")
+                            $("#anhDeODay").html("")
+                        } else {
+                            alert("Thêm thất bại")
+                        }
+                    },
+                    error: function() {
+                        alert("Thêm thất bại")
+                    }
+                });
+            })
         });
 
-		function callBack(data){
-			$.ajax({
-				type: "POST",
-				url: "{{URL::to('/admin/them-anh')}}",
-				data: {base64: data.base64, name:data.name, _token:token},
-				dataType: "json",
-				success: function (rs) {
-					let element = $(`<img class'anh' src="${rs.url}" />`).click(chonAnh)
-					$(element).prependTo("#chenAnh")
-				}
-			});
-		}
+        function callBack(data) {
+            $.ajax({
+                type: "POST",
+                url: "{{ URL::to('/admin/them-anh') }}",
+                data: {
+                    base64: data.base64,
+                    name: data.name,
+                    _token: token
+                },
+                dataType: "json",
+                success: function(rs) {
+                    let element = $(`<img class'anh' id_anh="${rs.id}" src="${rs.url}" />`).click(chonAnh)
+                    $(element).prependTo("#chenAnh")
+                }
+            });
+        }
+
         function base64(element, callback) {
-			var file = element.files[0];
-			var reader = new FileReader();
-			reader.onloadend = function() {
-				file["base64"] = reader.result.split(",")[1]
-				callBack(file)
-			}
-			reader.readAsDataURL(file);
+            var file = element.files[0];
+            var reader = new FileReader();
+            reader.onloadend = function() {
+                file["base64"] = reader.result.split(",")[1]
+                callBack(file)
+            }
+            reader.readAsDataURL(file);
         }
     </script>
 @endsection

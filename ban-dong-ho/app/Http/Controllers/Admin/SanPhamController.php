@@ -8,6 +8,8 @@ use App\Model\SanPham;
 use Facade\FlareClient\Http\Response;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\Model\HinhAnh;
+use App\Model\Anh_SanPham;
+use Illuminate\Support\Facades\Auth;
 
 class SanPhamController extends Controller
 {
@@ -20,8 +22,29 @@ class SanPhamController extends Controller
         return view();
     }
     public function themSanPham(Request $request){
-        $sp = $request->all();
-        $kq = SanPham::create($sp);
+        $sp = new SanPham();
+        $sp->TENSP = $request->TENSP;
+        $sp->DUONGDAN = $request->DUONGDAN;
+        $sp->HINHDAIDIEN = $request->HINHDAIDIEN;
+        $sp->NDTOMTAT= $request->NDTOMTAT;
+        $sp->NOIDUNG=$request->NOIDUNG;
+        $sp->NGUOIDANG= Auth::user()->id;
+        $sp->DADUYET = true;
+        $sp->GIABAN = $request->GIABAN;
+        $sp->GIAMGIA=$request->GIAMGIA;
+        $sp->MATHUONGHIEU = $request->MATHUONGHIEU;
+        $sp->DONVITINH = $request->DONVITINH;
+        $kq = $sp->save();
+        $album = $request->album;
+        $i = 1;
+        foreach($album as $al){
+            $anh_SanPham = new Anh_SanPham();
+            $anh_SanPham->MAANH = $al;
+            $anh_SanPham->MASANPHAM = $sp->id;
+            $anh_SanPham->THUTU = $i;
+            $anh_SanPham->save();
+            $i++;
+        }        
         if($kq){
             return Response()->json(["kq"=>true]);
         }
@@ -55,6 +78,6 @@ class SanPhamController extends Controller
         $luuAnh->URL = $url;
         $luuAnh->THUMUC = "storages";
         $luuAnh->save();
-        return response()->json(["url"=>$url]);
+        return response()->json(["url"=>$url,"id"=>$luuAnh->id]);
     }
 }

@@ -27,6 +27,7 @@ class CreateSanPhamsTable extends Migration
             $table->bigInteger("MATHUONGHIEU")->unsigned();
             $table->string("DONVITINH");            
             $table->timestamps();
+            $table->softDeletes();
             $table->engine = 'InnoDB';
         });
     }

@@ -42,6 +42,9 @@ class BackupController extends Controller
             if($table->table_name != "migrations")
                 $this->xuatSQL($table->table_name,$sql);
         }   
+        $sql = "set global net_buffer_length=1000000; 
+        set global max_allowed_packet=1000000000;
+        ".$sql;
         $backup["sql"] = $sql;
         $backup["image"] = [];
         $anhs = HinhAnh::all();
@@ -73,8 +76,7 @@ class BackupController extends Controller
             foreach($data->image as $image){     
                 $image->fileName = str_replace("\n","","$image->fileName");
                 $image->fileName = str_replace("\r","","$image->fileName");
-                File::put(public_path("\\storages\\$image->fileName"),base64_decode($image->data));
-                
+                File::put(public_path("\\storages\\$image->fileName"),base64_decode($image->data));                
             }
             Backup::$sql = "sql";
             file_put_contents(storage_path("\\backup.sql"),$data->sql);

@@ -50,10 +50,11 @@ class SanPhamController extends Controller
     }
     public function themAnh(Request $request){
         file_put_contents(public_path("\\storages\\$request->name"),base64_decode($request->base64)); 
-        $url = asset("storages/$request->name");
+        $url = "/storages/$request->name";
         $luuAnh = new HinhAnh();
         $luuAnh->URL = $url;
         $luuAnh->THUMUC = "storages";
+        $luuAnh->save();
         return response()->json(["url"=>$url]);
     }
 }

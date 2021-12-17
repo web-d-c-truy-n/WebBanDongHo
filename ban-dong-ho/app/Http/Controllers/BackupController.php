@@ -41,10 +41,7 @@ class BackupController extends Controller
         foreach($tableName as $table){
             if($table->table_name != "migrations")
                 $this->xuatSQL($table->table_name,$sql);
-        }   
-        $sql = "set global net_buffer_length=1000000; 
-        set global max_allowed_packet=1000000000;
-        ".$sql;
+        }
         $backup["sql"] = $sql;
         $backup["image"] = [];
         $anhs = HinhAnh::all();
@@ -79,6 +76,9 @@ class BackupController extends Controller
                 File::put(public_path("\\storages\\$image->fileName"),base64_decode($image->data));                
             }
             Backup::$sql = "sql";
+            DB::unprepared("
+            set global net_buffer_length=1000000; 
+            set global max_allowed_packet=1000000000;");
             file_put_contents(storage_path("\\backup.sql"),$data->sql);
             Artisan::call("migrate:refresh");
             unlink(storage_path("\\backup.sql"));

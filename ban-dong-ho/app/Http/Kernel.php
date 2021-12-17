@@ -3,6 +3,8 @@
 namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use App\Console\Commands\BackupCommand;
+use Illuminate\Queue\Console\RestartCommand;
 
 class Kernel extends HttpKernel
 {
@@ -62,5 +64,9 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+    ];
+    protected $commands = [
+        \App\Console\Commands\BackupCommand::class,
+        \App\Console\Commands\RestoreCommand::class,
     ];
 }

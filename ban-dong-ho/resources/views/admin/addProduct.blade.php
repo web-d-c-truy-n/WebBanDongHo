@@ -112,7 +112,46 @@
         .album {
             width: 25%;
         }
+        .btn5-hover {
+  width: 160px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  margin: 20px;
+  height: 55px;
+  text-align:center;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 50px;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
 
+.btn5-hover:hover {
+  background-position: 100% 0;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.btn5-hover:focus {
+  outline: none;
+}
+
+.btn5-hover.btn5 {
+    background-image: linear-gradient(
+      to right,
+      #25aae1,
+      #4481eb,
+      #04befe,
+      #3f86ed
+    );
+    box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+  }
     </style>
 @endsection
 @section('renderbody')
@@ -131,14 +170,15 @@
                             <div class="col">
                                 <h2>Ảnh sản phẩm</h2>
                                 <div id="anhDeODay"></div>
-                                <button class="place-buy-btn js-buy-ticket" onclick="clickAnh = 1">Thêm ảnh</button>
+                                <button class="btn5-hover btn5 place-buy-btn js-buy-ticket"onclick="clickAnh = 1">Thêm ảnh</Button>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
                                 <h2>Album ảnh sản phẩm</h2>
                                 <div id="albumDeODay"></div>
-                                <button class="place-buy-btn js-buy-ticket" onclick="clickAnh = 2">Thêm ảnh</button>
+                                <button class="btn5-hover btn5 place-buy-btn js-buy-ticket"onclick="clickAnh = 2">Thêm ảnh</Button>
+                               
                             </div>
                         </div>
                     </div>
@@ -165,14 +205,17 @@
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-name">Tên sản phẩm</label>
                                             <input type="text" id="input-username" class="form-control" name="TENSP"
-                                                placeholder="Name">
+                                                placeholder="Tên sản phẩm">
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-donvitinh">Đơn vị tính</label>
-                                            <input type="email" id="input-email" class="form-control"
-                                                placeholder="Đơn vị tính" name="DONVITINH">
+                                            <select class="form-control" name="DONVITINH">
+                                                    <option value="Cái">Cái</option>
+                                                    <option value="Cái">Chiếc</option>
+                                                    <option value="Cái">Dây</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -181,14 +224,14 @@
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-first-name">Giá bán</label>
                                             <input type="text" id="input-first-name" class="form-control"
-                                                placeholder="Price" name="GIABAN">
+                                                placeholder="Giá bán" name="GIABAN">
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-last-name">Giá khuyến mãi</label>
                                             <input type="text" id="input-last-name" class="form-control"
-                                                placeholder="Price" name="GIAMGIA">
+                                                placeholder="Giá khuyến mãi" name="GIAMGIA">
                                         </div>
                                     </div>
                                 </div>
@@ -217,7 +260,7 @@
                                                 <div class="input-group-prepend">
                                                     <button type="button" class="btn btn-danger">Link</button>
                                                 </div>
-                                                <input type="text" class="form-control" placeholder="Đường dẫn"
+                                                <input type="text" class="form-control" placeholder="Đường dẫn" id="duongDan"
                                                     name="DUONGDAN">
                                             </div>
                                         </div>
@@ -231,7 +274,7 @@
                                 <div class="form-group">
                                     <label class="form-control-label">Tóm tắt</label>
                                     <textarea rows="4" class="form-control"
-                                        placeholder="A few words about your product..." name="NDTOMTAT"></textarea>
+                                        placeholder="Mô tả ngắn gọn về sản phẩm trong khoảng 225 từ " name="NDTOMTAT"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label class="from-control-label">Nội dung</label>
@@ -311,6 +354,9 @@
         }
         $(document).ready(function() {
             $(".anh").click(chonAnh)
+            $("#input-username").change(function(){                
+                $("#duongDan").val(bodauTiengViet($(this).val().trim()))
+            })
             $("#dang").click(function() {
                 let input = $("#themSanPham").serializeArray()
                 let p = {}
@@ -343,7 +389,9 @@
                             alert("Thêm thất bại")
                         }
                     },
-                    error: function() {
+                    error: function(rs) {
+                        debugger
+                        console.log(rs)
                         alert("Thêm thất bại")
                     }
                 });
@@ -375,6 +423,19 @@
                 callBack(file)
             }
             reader.readAsDataURL(file);
+        }
+        function bodauTiengViet(str) {
+            str = str.toLowerCase();
+            str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, 'a');
+            str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, 'e');
+            str = str.replace(/ì|í|ị|ỉ|ĩ/g, 'i');
+            str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, 'o');
+            str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, 'u');
+            str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, 'y');
+            str = str.replace(/đ/g, 'd');
+            str = str.replace(/\W+/g, ' ');
+            str = str.replace(/\s/g, '-');
+            return str;
         }
     </script>
 @endsection

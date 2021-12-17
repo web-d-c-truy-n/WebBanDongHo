@@ -3,6 +3,7 @@
 
 @endsection
 @section("js")
+
 @endsection
 @section('rederbody')
 <!--bikes-->
@@ -257,6 +258,7 @@
                    <a href="bicycles.html">Quick View</a>
                 </div>
             </li></ul><div class="nbs-flexisel-nav-left" style="top: 174.5px;"></div><div class="nbs-flexisel-nav-right" style="top: 174.5px;"></div></div></div>
+            <script type="text/javascript" src="{{asset('js/jquery.flexisel.js')}}"></script>	
        <script type="text/javascript">
         $(window).load(function() {			
          $("#flexiselDemo1").flexisel({
@@ -282,8 +284,7 @@
            }
        });
        });
-       </script>
-       <script type="text/javascript" src="{{asset('js/jquery.flexisel.js')}}"></script>			 
+       </script>		 
 </div>
 </div>
 <!---->

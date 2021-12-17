@@ -36,7 +36,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/tat-ca-san-pham','AdminController@product');
     Route::get('/thanh-vien','AdminController@customer');
     Route::get('/thong-tin-ca-nhan','AdminController@profile');
-    
+    Route::post("/them-anh",'Admin\SanPhamController@themAnh');
 });
 
 Route::get('test', function(){

@@ -19,7 +19,7 @@ class CreateDonHangsTable extends Migration
             $table->date("NGAYDAT");
             $table->date("NGAYGIAOHANG");
             $table->string("DIACHIGIAOHANG");
-            $table->string("GHICHU");
+            $table->string("GHICHU")->nullable();
             $table->string("TRANGTHAI");
             $table->timestamps();
             $table->engine = 'InnoDB';

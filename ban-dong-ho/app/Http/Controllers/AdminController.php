@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\URL;
+use App\Model\ThuongHieu;
+use App\Model\HinhAnh;
 
 class AdminController extends Controller
 {
@@ -26,7 +28,9 @@ class AdminController extends Controller
         return view('admin.order');
     }
     public function add_product(){
-        return view('admin.addProduct');
+        $thuongHieu = ThuongHieu::all();
+        $hinhAnh = HinhAnh::all();
+        return view('admin.addProduct',["thuongHieu"=>$thuongHieu,"hinhAnh"=>$hinhAnh]);
     }
     public function product(){
         return view('admin.product');

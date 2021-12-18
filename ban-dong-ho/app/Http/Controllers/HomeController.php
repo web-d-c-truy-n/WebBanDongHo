@@ -13,6 +13,9 @@ class HomeController extends Controller
         $sanPhamMoi = SanPham::orderBy("created_at","DESC")->paginate(4);
         return view('pages.home',["sanPhamMoi"=>$sanPhamMoi]);
     }
+    public function order_information(){
+        return view('pages.order_information');
+    }
     public function cart(){
         return view('pages.cart');
     }

@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Bike Shop a Ecommerce Category Flat Bootstarp Responsive Website Template| Parts :: w3layouts</title>
+    <title>Đồng hồ</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <!-- jQuery (Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -69,12 +69,10 @@
                                 @endforeach
                             </ul>
                         </li>
-                        <li class="dropdown1"><a href="parts.html">blog</a>
+                        <li class="dropdown1"><a href="{{URL::to('/blog')}}">blog</a>
                             
                         </li>
-                        <li class="dropdown1"><a href="accessories.html">Liên hệ</a>
-                            
-                        </li>
+                        
                         <li class="dropdown1"><a href="#" class="openModal">TÀI KHOẢN</a>
 
                         </li>

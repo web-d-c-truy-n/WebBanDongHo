@@ -19,6 +19,10 @@ class HomeController extends Controller
         $tinhThanh = TinhThanh::all();
         return view('pages.order_information',["tinhThanh"=>$tinhThanh]);
     }
+    public function blog(){
+        return view('pages.blog');
+    }
+
     public function cart(){
         return view('pages.cart');
     }

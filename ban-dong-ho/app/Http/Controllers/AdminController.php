@@ -27,6 +27,12 @@ class AdminController extends Controller
     public function order(){
         return view('admin.order');
     }
+    public function add_blog(){
+        return view('admin.addblog');
+    }
+    public function blog(){
+        return view('admin.blog');
+    }
     public function add_product(){
         $thuongHieu = ThuongHieu::all();
         $hinhAnh = HinhAnh::all();

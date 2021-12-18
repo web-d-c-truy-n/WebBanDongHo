@@ -30,6 +30,7 @@ Route::get('/thong-tin-don-hang','HomeController@order_information');
 Route::post('/xoa-gio-hang','HomeController@xoaGioHang');
 Route::get("/lay-quan-huyen/{maTinh}","DiaDiemController@layCacQuanHuyen");
 Route::get("/lay-phuong-xa/{maQuan}","DiaDiemController@layCacPhuongXa");
+Route::get('/blog','HomeController@blog');
 
 Route::prefix('admin')->group(function () {
     Route::get('/', 'AdminController@Index');
@@ -43,6 +44,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/thong-tin-ca-nhan','AdminController@profile');
     Route::post("/them-anh",'Admin\SanPhamController@themAnh');
     Route::post("/them-san-pham",'Admin\SanPhamController@themSanPham');
+    Route::get('/blog','AdminController@blog');
+    Route::get('/them-bai-viet','AdminController@add_blog');
 });
 
 Route::get('test', function(){

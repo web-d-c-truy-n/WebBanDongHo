@@ -7,14 +7,12 @@
 @section('rederbody')
 <div class="parts">
     <div class="container">
-        <h2>BIKE-PARTS ALL</h2>
+        <h2>TẤT CẢ SẢN PHẨM</h2>
         <div class="bike-parts-sec">
              <div class="bike-parts">
                 <div class="top">
                     <ul>
                         <li><a href="index.html">home</a></li>
-                        <li><a href="#"> / </a></li>
-                        <li><a href="#">parts</a></li>
                     </ul>				 
                 </div>
                 <div class="bike-apparels">
@@ -23,8 +21,8 @@
                             <img src="images/p1.jpg" alt="">
                             </a><div class="part-info"><a href="single.html">
                                 </a><a href="#"><h5>Wire Locks<span>$7.00</span></h5></a>
-                                <a class="add-cart" href="single.html">Quick View</a>
-                                <a class="qck" href="single.html">BUY NOW</a>
+                                <a class="add-cart" href="single.html">Xem nhanh</a>
+                                <a class="qck" href="single.html">Mua ngay</a>
                             </div>
                         </div>
                         <a href="single.html"></a><div class="part-sec"><a href="single.html">					 
@@ -167,67 +165,9 @@
             <div class="rsidebar span_1_of_left">
                 <section class="sky-form">
                     <div class="product_right">
-                        <h3 class="m_2">Categories</h3>
-                           <div class="metro"><span class="old"><select class="" tabindex="10" data-settings="{&quot;wrapperClass&quot;:&quot;metro&quot;}" id="EasyDropDownFF6104">
-                               <option value="0">Frames</option>	
-                               <option value="1">Back Packs</option>
-                               <option value="2">Frame Bags</option>
-                               <option value="3">Panniers </option>
-                               <option value="4">Saddle Bags</option>								
-                          </select></span><span class="selected">Frames</span><span class="carat"></span><div><ul><li class="active">Frames</li><li>Back Packs</li><li>Frame Bags</li><li>Panniers </li><li>Saddle Bags</li></ul></div></div>
-                          <div class="metro"><span class="old"><select class="" tabindex="50" data-settings="{&quot;wrapperClass&quot;:&quot;metro&quot;}" id="EasyDropDown0ECFAE">
-                               <option value="1">Body Armour</option>
-                               <option value="2">Sub Category1</option>
-                               <option value="3">Sub Category2</option>
-                               <option value="4">Sub Category3</option>
-                          </select></span><span class="selected">Body Armour</span><span class="carat"></span><div><ul><li class="active">Body Armour</li><li>Sub Category1</li><li>Sub Category2</li><li>Sub Category3</li></ul></div></div>
-                          <div class="metro"><span class="old"><select class="" tabindex="8" data-settings="{&quot;wrapperClass&quot;:&quot;metro&quot;}" id="EasyDropDownD1627C">
-                               <option value="1">Tools</option>
-                               <option value="2">Sub Category1</option>
-                               <option value="3">Sub Category2</option>
-                               <option value="4">Sub Category3</option>
-                          </select></span><span class="selected">Tools</span><span class="carat"></span><div><ul><li class="active">Tools</li><li>Sub Category1</li><li>Sub Category2</li><li>Sub Category3</li></ul></div></div>
-                          <div class="metro"><span class="old"><select class="" tabindex="8" data-settings="{&quot;wrapperClass&quot;:&quot;metro&quot;}" id="EasyDropDown991064">
-                               <option value="1">Services</option>
-                               <option value="2">Sub Category1</option>
-                               <option value="3">Sub Category2</option>
-                               <option value="4">Sub Category3</option>
-                          </select></span><span class="selected">Services</span><span class="carat"></span><div><ul><li class="active">Services</li><li>Sub Category1</li><li>Sub Category2</li><li>Sub Category3</li></ul></div></div>
-                          <div class="metro"><span class="old"><select class="" tabindex="8" data-settings="{&quot;wrapperClass&quot;:&quot;metro&quot;}" id="EasyDropDownCCD2F3">
-                               <option value="1">Materials</option>
-                               <option value="2">Sub Category1</option>
-                               <option value="3">Sub Category2</option>
-                               <option value="4">Sub Category3</option>
-                          </select></span><span class="selected">Materials</span><span class="carat"></span><div><ul><li class="active">Materials</li><li>Sub Category1</li><li>Sub Category2</li><li>Sub Category3</li></ul></div></div>
-                     </div>
-            
-                    <h4>components</h4>
-                    <div class="row row1 scroll-pane">
-                        <div class="col col-4">
-                               <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Frames(20)</label>
-                        </div>
-                        <div class="col col-4">
-                               <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Foks, Suspensions (48)</label>
-                               <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Breaks and Pedals (45)</label>
-                               <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Tires,Tubes,Wheels (45)</label>
-                               <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Serevice Parts(12)</label>
-                        </div>
-                    </div>
-                    <h4>Apparels</h4>
-                    <div class="row row1 scroll-pane">
-                        <div class="col col-4">
-                               <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Locks (20)</label>
-                        </div>
-                        <div class="col col-4">
-                               <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Speed Cassette (5)</label>
-                               <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Bike Pedals (7)</label>
-                               <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Handels (2)</label>
-                               <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Other (50)</label>
-                        </div>
-                    </div>
-                </section>
+                        
                 <section class="sky-form">
-                       <h4>Brand</h4>
+                       <h4>Thương hiệu</h4>
                            <div class="row row1 scroll-pane">
                                <div class="col col-4">
                                    <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Lezyne</label>
@@ -244,7 +184,7 @@
                            </div>
                   </section>		      
                   <section class="sky-form">
-                       <h4>Price</h4>
+                       <h4>Tầm giá</h4>
                            <div class="row row1 scroll-pane">
                                <div class="col col-4">
                                    <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>$50.00 and Under (30)</label>

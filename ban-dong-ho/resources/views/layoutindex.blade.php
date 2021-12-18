@@ -6,9 +6,91 @@
 <!-- jQuery (Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- Custom Theme files -->
 <link href="{{asset('css/style.css')}}" rel="stylesheet" type="text/css" media="all" />
 @yield('css')
+<style>
+	.site-footer
+  {
+    padding-bottom:0
+  }
+  .site-footer .copyright-text,.site-footer .social-icons
+  {
+    text-align:center
+  }
+}
+.social-icons
+{
+  padding-left:0;
+  margin-bottom:0;
+  list-style:none
+}
+.social-icons li
+{
+  display:inline-block;
+  margin-bottom:4px
+}
+.social-icons li.title
+{
+  margin-right:15px;
+  text-transform:uppercase;
+  color:#96a2b2;
+  font-weight:700;
+  font-size:13px
+}
+.social-icons a{
+  background-color:#eceeef;
+  font-size:16px;
+  display:inline-block;
+  line-height:44px;
+  width:44px;
+  height:44px;
+  text-align:center;
+  margin-right:8px;
+  border-radius:100%;
+  -webkit-transition:all .2s linear;
+  -o-transition:all .2s linear;
+  transition:all .2s linear
+}
+.social-icons a:active,.social-icons a:focus,.social-icons a:hover
+{
+  color:#fff;
+  background-color:#29aafe
+}
+.social-icons.size-sm a
+{
+  line-height:34px;
+  height:34px;
+  width:34px;
+  font-size:14px
+}
+.social-icons a.facebook:hover
+{
+  background-color:#3b5998
+}
+.social-icons a.twitter:hover
+{
+  background-color:#00aced
+}
+.social-icons a.linkedin:hover
+{
+  background-color:#007bb6
+}
+.social-icons a.dribbble:hover
+{
+  background-color:#ea4c89
+}
+@media (max-width:767px)
+{
+  .social-icons li.title
+  {
+    display:block;
+    margin-right:0;
+    font-weight:600
+  }
+}
+</style>
 <!-- Custom Theme files -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -69,12 +151,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								  @endforeach												
 							  </ul>
 						  </li>
-						  <li class="dropdown1"><a href="parts.html">Blog</a>
+						  <li class="dropdown1"><a href="{{URL::to('/blog')}}">Blog</a>
 							 
 						 </li>      
-						 <li class="dropdown1"><a href="accessories.html">Liên hệ</a>
-							
-						 </li>               
+						           
 						 <li class="dropdown1"><a href="#" class="openModal">TÀI KHOẢN</a>
 
 						 </li>
@@ -89,11 +169,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					   <div class="callbacks_container">
 						   <ul class="rslides" id="slider">
 							    <li><h1>WATCHES</h1></li>
-								<li><h1>SPEED BICYCLE</h1></li>	
-								<li><h1>MOUINTAIN BICYCLE</h1></li>	
+								
 						  </ul>
 						  <p>Phần lớn mọi người dùng điện thoại để xem giờ<br/> nhưng <span><b>đồng hồ</b></span> vẫn luôn mang <span><b>vẻ đẹp</b></span> và <span><b>hấp dẫn riêng</b></span></p>
-						  <a class="morebtn" href="bicycles.html"><b>SHOP WATCHES</b></a>
+						  <a class="morebtn" href="bicycles.html"><b>Mua sắm</b></a>
 					  </div>
 				  </div>
 	 </div>
@@ -105,22 +184,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <div id="cate" class="categories">
 	 <div class="container">
-		 <h3>CATEGORIES</h3>
+		 <h3>THƯƠNG HIỆU NỔI BẬT</h3>
 		 <div class="categorie-grids">
 			 <a href="bicycles.html"><div class="col-md-4 cate-grid grid1">
-				 <h4>FIXED / SINGLE SPEED</h4>
-				 <p>Are you ready for the 27.5 Revloution ?</p>
-				 <a class="store" href="bicycles.html">GO TO STORE</a>
+				
+				 
+				 <a class="store" href="bicycles.html">Brand</a>
 			 </div></a>
 			 <a href="bicycles.html"><div class="col-md-4 cate-grid grid2">
-				 <h4>PREMIMUM SERIES</h4>
-				 <p>Exclusive Bike Components</p>
-				 <a class="store" href="bicycles.html">GO TO STORE</a>
+				
+				
+				 <a class="store" href="bicycles.html">Brand</a>
 			 </div></a>
 			 <a href="bicycles.html"><div class="col-md-4 cate-grid grid3">
-				 <h4>CITY BIKES</h4>
-				 <p>Street Playground</p>
-				 <a class="store" href="bicycles.html">GO TO STORE</a>
+				
+				 
+				 <a class="store" href="bicycles.html">Brand</a>
 			 </div></a>
 			 <div class="clearfix"></div>
 		 </div>
@@ -129,16 +208,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 @yield('rederbody')
 <div class="footer">
 	 <div class="container wrap">
-		<div class="logo2">
-			 <a href="/"><img src="{{asset('images/Tp_watch__2_-removebg-preview.png')}}" class="imglogo2"alt=""/></a>
-		</div>
+		<div class="col-md-4 col-sm-6 col-xs-12">
+            <ul class="social-icons">
+              <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+              <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
+            </ul>
+          </div>
 		<div class="ftr-menu">
-			 <ul>
-				 <li><a href="bicycles.html">SẢN PHẨM</a></li>
-				 <li><a href="parts.html">BLOG</a></li>
-				 <li><a href="accessories.html">LIÊN HỆ</a></li>
-				 <li><a href="404.html">TÀI KHOẢN</a></li>
-			 </ul>
+			<div class="row">
+				<div class="col-md-12">
+				  <p class="copyright-text" style="color:white">Copyright &copy; 2021 by <a href="#">Đoàn Thảo</a>.</p>
+				</div>
+			</div>
 		</div>
 		<div class="clearfix"></div>
 	 </div>

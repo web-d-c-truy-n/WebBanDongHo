@@ -193,13 +193,13 @@ a.morebtn:hover{
 	width:31%;
 }
 .grid1{
-	background:url(../images/c1.jpg) no-repeat;
+	background:url(../images/ga-2000s-1a__ca988251da794ef98844a5581ef9d622.png) ;
 }
 .grid2{
-	background:url(../images/c2.jpg) no-repeat;
+	background:url(../images/dong-ho-seiko-nam-chinh-hang-4.png);
 }
 .grid3{
-	background:url(../images/c3.jpg) no-repeat;
+	background:url(../images/dong-ho-nang-luong-mat-troi-citizen-1.jpg) no-repeat;
 }
 .cate-grid h4{
 	color:#fcff19;
@@ -214,9 +214,9 @@ a.morebtn:hover{
 	font-weight:200;
 }
 a.store{
-	color:#fff;
+	color:	#FFFF00;
 	font-size:0.9em;
-	border:3px solid #fff;
+	border:3px solid 	#FFFF00;
 	border-radius:7px;
 	font-weight:500;
 	display:inline-block;
@@ -224,8 +224,8 @@ a.store{
 	margin-top:1.5em;
 }
 a.store:hover{
-	border:2px solid #fcff19;
-	color:#fcff19;
+	border:2px solid #FFF5EE;
+	color:#FFF5EE;
 }
 /*--bikes--*/
 .bikes{
@@ -410,13 +410,13 @@ select{
 /*--footer--*/
 .footer{
 	background: rgb(2,0,36);
-	background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 34%, rgba(210,224,17,1) 75%);
-	padding:1.5em;
+	background: #26272b;
 }
 .logo2{
 	float:left;
 }
 .ftr-menu{
+	margin-top:50px;
 	float:right;
 }
 .ftr-menu ul li{
@@ -428,7 +428,7 @@ select{
 	text-decoration:none;
 	font-size:1.15em;
 	font-weight:500;
-	color:#000;
+	color:white;
 	padding:0 1em;
 }
 /*--bycycle--*/

@@ -78,7 +78,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						 <li class="dropdown1"><a href="#" class="openModal">TÀI KHOẢN</a>
 
 						 </li>
-						  <a class="shop" href="cart.html"><img src="{{asset('images/cart.png')}}" alt=""/><span class="badge" id="soLuongGio"></span></a>
+						  <a class="shop" href="{{URL::to("/gio-hang")}}"><img src="{{asset('images/cart.png')}}" alt=""/><span class="badge" id="soLuongGio">{{$gioHang!==null?count($gioHang):""}}</span></a>
 					  </ul>
 				 </div>
 				 <div class="clearfix"></div>

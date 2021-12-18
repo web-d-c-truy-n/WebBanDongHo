@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Model\SanPham;
 use App\Model\ThuongHieu;
 use Illuminate\Support\Facades\Cookie;
+use Illuminate\Http\Response;
 class HomeController extends Controller
 {
     public function index(){
@@ -55,6 +56,13 @@ class HomeController extends Controller
                 array_push($gioHang,["idSP"=>$idSP,"soLuong"=>$soLuong]);
             }
         }
-        return response()->json(['gioHang' => Cookie::get('gioHang')])->withCookie(["gioHang"=>json_encode($gioHang)]);
+        $cookie = Cookie::make('gioHang', json_encode($gioHang), 10000000);  
+        $response = response()->json(array('status' => 'ok',"count"=>count($gioHang)));  
+        $response->headers->setCookie($cookie); 
+        return $response;
+    }
+    public function xoaGioHang(Request $request){
+        $idSP = $request->idSP;
+        
     }
 }

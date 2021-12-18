@@ -4,7 +4,9 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Model\ThuongHieu;
-
+use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Crypt;
+use Helper\Common;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -26,6 +28,13 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         $thuongHieu = ThuongHieu::all();
-        return view()->share('thuongHieu',$thuongHieu);
+        $goiHang = Cookie::get("gioHang");                
+        if($goiHang !== null){            
+            $goiHang = explode("|",Crypt::decrypt($goiHang,false));
+            $common = new Common();
+            return view()->share(["thuongHieu"=>$thuongHieu,"gioHang"=>json_decode($goiHang[1]),"common"=>$common]);
+        }            
+        else
+            return view()->share(["thuongHieu"=>$thuongHieu,"gioHang"=>null]);
     }
 }

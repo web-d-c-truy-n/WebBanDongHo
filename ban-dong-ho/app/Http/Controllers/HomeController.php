@@ -7,6 +7,8 @@ use App\Model\SanPham;
 use App\Model\ThuongHieu;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Crypt;
+use App\Model\TinhThanh;
 class HomeController extends Controller
 {
     public function index(){
@@ -14,7 +16,8 @@ class HomeController extends Controller
         return view('pages.home',["sanPhamMoi"=>$sanPhamMoi]);
     }
     public function order_information(){
-        return view('pages.order_information');
+        $tinhThanh = TinhThanh::all();
+        return view('pages.order_information',["tinhThanh"=>$tinhThanh]);
     }
     public function cart(){
         return view('pages.cart');
@@ -63,9 +66,22 @@ class HomeController extends Controller
         $response = response()->json(array('status' => 'ok',"count"=>count($gioHang)));  
         $response->headers->setCookie($cookie); 
         return $response;
-    }
+    }    
     public function xoaGioHang(Request $request){
-        $idSP = $request->idSP;
-        
+        $idSP = $request->idSP;        
+        $gh = Cookie::get("gioHang");             
+        $gioHang = json_decode($gh);
+        $i = -1;
+        foreach($gioHang as $index=>$item){
+            if($item->idSP == $idSP){
+                $i = $index;
+            }
+        }
+        array_splice($gioHang,$i,1);
+        $gioh = json_encode($gioHang);
+        $cookie = Cookie::make('gioHang', $gioh, 10000000);  
+        $response = response()->json(array('status' => 'ok',"count"=>count($gioHang)));  
+        $response->headers->setCookie($cookie); 
+        return $response;
     }
 }

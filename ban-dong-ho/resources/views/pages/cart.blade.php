@@ -16,9 +16,28 @@
                 <script>
                     $(document).ready(function(c) {
                         $('.close1').on('click', function(c) {
-                            $(this).parents('.cart-header').fadeOut('slow', function(c) {
-                                $(this).parents('.cart-header').remove();
-                            });
+                            debugger
+                            let idSP = $(this).attr("idSP");
+                            $.ajax({
+                                type: "POST",
+                                url: "{{URL::to('/xoa-gio-hang')}}",
+                                data: {_token:"{{ csrf_token() }}",idSP:idSP},
+                                dataType: "json",
+                                success: (rs) => {                                    
+                                    $("#soLuongGio").text(rs.count>0?rs.count:"")
+                                    $(this).parents('.cart-header').fadeOut('slow', function(c) {
+                                    $(this).parents('.cart-header').remove();
+                                    })
+                                },
+                                error: (rs) => {
+                                    alert("error")
+                                    let js = JSON.parse(rs.responseText)
+                                    $("#soLuongGio").text(js.count>0?js.count:"")
+                                    $(this).parents('.cart-header').fadeOut('slow', function(c) {
+                                    $(this).parents('.cart-header').remove();
+                                });
+                                }
+                            });                            
                         });
                     });
                 </script>        
@@ -59,7 +78,7 @@
                 <h4 class="last-price">TỔNG CỘNG</h4>
                 <span class="total final">{{$tong}}</span>
                 <div class="clearfix"></div>
-                <a class="order" href="#">Thanh toán</a>                
+                <a class="order" href="{{URL::to("/thong-tin-don-hang")}}">Thanh toán</a>                
             </div>
         </div>
     </div>

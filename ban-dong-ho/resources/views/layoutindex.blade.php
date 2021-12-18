@@ -64,31 +64,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					   <ul class="nav">
 						  <li class="dropdown1"><a href="{{URL::to("/san-pham")}}">Sản phẩm</a>
 							  <ul class="dropdown2">
-									<li><a href="bicycles.html">FIXED / SINGLE SPEED</a></li>
-									<li><a href="bicycles.html">CITY BIKES</a></li>
-									<li><a href="bicycles.html">PREMIMUN SERIES</a></li>												
+								  @foreach ($thuongHieu as $th )
+									  <li><a href="{{URL::to("/danh-sach-san-pham/$th->DUONGDAN")}}">{{$th->TENTHUONGHIEU}}</a></li>
+								  @endforeach												
 							  </ul>
 						  </li>
 						  <li class="dropdown1"><a href="parts.html">Blog</a>
-							 <ul class="dropdown2">
-									<li><a href="parts.html">CHAINS</a></li>
-									<li><a href="parts.html">TUBES</a></li>
-									<li><a href="parts.html">TIRES</a></li>
-									<li><a href="parts.html">DISC BREAKS</a></li>
-							  </ul>
+							 
 						 </li>      
 						 <li class="dropdown1"><a href="accessories.html">Liên hệ</a>
-							 <ul class="dropdown2">
-									<li><a href="accessories.html">LOCKS</a></li>
-										<li><a href="accessories.html">HELMETS</a></li>
-										<li><a href="accessories.html">ARM COVERS</a></li>
-										<li><a href="accessories.html">JERSEYS</a></li>
-							  </ul>
+							
 						 </li>               
 						 <li class="dropdown1"><a href="#" class="openModal">TÀI KHOẢN</a>
 
 						 </li>
-						  <a class="shop" href="cart.html"><img src="images/cart.png" alt=""/></a>
+						  <a class="shop" href="cart.html"><img src="{{asset('images/cart.png')}}" alt=""/><span class="badge" id="soLuongGio"></span></a>
 					  </ul>
 				 </div>
 				 <div class="clearfix"></div>
@@ -184,6 +174,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    });
    </script>
    <script type="text/javascript" src="{{asset('js/jquery.flexisel.js')}}"></script>	
+   @include('common.themGio')
    @yield('js')
 </html>
 

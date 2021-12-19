@@ -22,6 +22,7 @@
             <input type="text" class="input-field" placeholder="Tên đăng nhập" required>
             <input type="email" class="input-field" placeholder="Mail" required>
             <input type="text" class="input-field" placeholder="Nhập mật khẩu" required>
+            <input type="text" class="input-field" placeholder="Xác nhận mật khẩu" required>
             <span class="spann"><input type="checkbox" class="check-box" style="height: unset">Tôi đồng ý điều khoản và dịch vụ</span>
             <button type="submit" class="submit-btn">Đăng kí</button>
         </form>

@@ -172,7 +172,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								
 						  </ul>
 						  <p>Phần lớn mọi người dùng điện thoại để xem giờ<br/> nhưng <span><b>đồng hồ</b></span> vẫn luôn mang <span><b>vẻ đẹp</b></span> và <span><b>hấp dẫn riêng</b></span></p>
-						  <a class="morebtn" href="bicycles.html"><b>Mua sắm</b></a>
+						  <a class="morebtn" href="{{URL::to('/san-pham')}}"><b>Mua sắm</b></a>
 					  </div>
 				  </div>
 	 </div>

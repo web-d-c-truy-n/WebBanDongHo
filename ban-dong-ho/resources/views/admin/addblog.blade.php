@@ -197,8 +197,8 @@
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-name">Tên bài viết</label>
-                                            <input type="text" id="input-username" class="form-control" name="TENSP"
-                                                placeholder="Tên sản phẩm">
+                                            <input type="text" id="input-username" class="form-control" name=""
+                                                placeholder="Tên bài viết">
                                         </div>
                                     </div>
                                    
@@ -208,7 +208,7 @@
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-first-name">Người đăng</label>
                                             <input type="text" id="input-first-name" class="form-control"
-                                                placeholder="Giá bán" name="GIABAN">
+                                                placeholder="Người đăng" name="">
                                         </div>
                                     </div>
                                    
@@ -222,7 +222,7 @@
                                 <div class="form-group">
                                     <label class="form-control-label">Tóm tắt</label>
                                     <textarea rows="4" class="form-control"
-                                        placeholder="Mô tả ngắn gọn về sản phẩm trong khoảng 225 từ " name="NDTOMTAT"></textarea>
+                                        placeholder="Mô tả ngắn gọn về bài viết trong khoảng 225 từ " name="NDTOMTAT"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label class="from-control-label">Nội dung</label>

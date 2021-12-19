@@ -1,5 +1,4 @@
 <html>
-
 <head>
     <title>Đồng hồ</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -69,7 +68,7 @@
                                 @endforeach
                             </ul>
                         </li>
-                        <li class="dropdown1"><a href="{{URL::to('/blog')}}">blog</a>
+                        <li class="dropdown1"><a href="{{URL::to('/blog')}}">Blog</a>
                             
                         </li>
                         
@@ -93,10 +92,9 @@
             </div>
             <div class="ftr-menu">
                 <ul>
-                    <li><a href="bicycles.html">SẢN PHẨM</a></li>
-                    <li><a href="parts.html">BLOG</a></li>
-                    <li><a href="accessories.html">LIÊN HỆ</a></li>
-                    <li><a href="404.html">TÀI KHOẢN</a></li>
+                    <li><a href="{{URL::to('/san-pham')}}">SẢN PHẨM</a></li>
+                    <li><a href="{{URL::to('/blog')}}">BLOG</a></li>
+                   
                 </ul>
             </div>
             <div class="clearfix"></div>

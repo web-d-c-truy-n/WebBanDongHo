@@ -22,7 +22,9 @@ class HomeController extends Controller
     public function blog(){
         return view('pages.blog');
     }
-
+    public function blog_details(){
+        return view('pages.blog_details');
+    }
     public function cart(){
         return view('pages.cart');
     }

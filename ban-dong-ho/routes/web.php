@@ -50,6 +50,8 @@ Route::prefix('admin')->group(function () {
     Route::post("/them-san-pham",'Admin\SanPhamController@themSanPham');
     Route::get('/blog','AdminController@blog');
     Route::get('/them-bai-viet','AdminController@add_blog');
+    Route::get('/sua-san-pham/{id}','AdminController@edit_product');
+    Route::post('/sua-san-pham','Admin\SanPhamController@suaSanPham');
 });
 
 Route::get('test', function(){

@@ -14,10 +14,6 @@ use Illuminate\Support\Facades\Auth;
 class SanPhamController extends Controller
 {
     //
-    public function dsSanPham(){
-        $sanPham = SanPham::paginate(10);
-        return view('',["sanPham"=>$sanPham]);
-    }
     public function trangThemSP(){
         return view();
     }

@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\URL;
 use App\Model\ThuongHieu;
 use App\Model\HinhAnh;
+use App\Model\SanPham;
 
 class AdminController extends Controller
 {
@@ -36,10 +37,17 @@ class AdminController extends Controller
     public function add_product(){
         $thuongHieu = ThuongHieu::all();
         $hinhAnh = HinhAnh::all();
-        return view('admin.addProduct',["thuongHieu"=>$thuongHieu,"hinhAnh"=>$hinhAnh]);
+        return view('admin.addProduct',["thuongHieu"=>$thuongHieu,"hinhAnh"=>$hinhAnh,"sanPham"=>null]);
+    }
+    public function edit_product($id){
+        $sanPham = SanPham::where('id',$id)->first();
+        $thuongHieu = ThuongHieu::all();
+        $hinhAnh = HinhAnh::all();
+        return view('admin.addProduct',["thuongHieu"=>$thuongHieu,"hinhAnh"=>$hinhAnh, "sanPham"=>$sanPham]);
     }
     public function product(){
-        return view('admin.product');
+        $sanPham = SanPham::paginate(5);
+        return view('admin.product',["sanPham"=>$sanPham]);
     }
     public function customer(){
         return view('admin.customer');

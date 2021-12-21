@@ -169,16 +169,25 @@
                         <div class="row">
                             <div class="col">
                                 <h2>Ảnh sản phẩm</h2>
-                                <div id="anhDeODay"></div>
+                                <div id="anhDeODay">
+                                    @if ($sanPham)
+                                        <img class="anhBia" id_anh="{{$sanPham->HINHDAIDIEN}}" src="{{ asset($sanPham->HinhAnh()->URL) }}" />
+                                    @endif
+                                </div>
                                 <button class="btn5-hover btn5 place-buy-btn js-buy-ticket"onclick="clickAnh = 1">Thêm ảnh</Button>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
                                 <h2>Album ảnh sản phẩm</h2>
-                                <div id="albumDeODay"></div>
-                                <button class="btn5-hover btn5 place-buy-btn js-buy-ticket"onclick="clickAnh = 2">Thêm ảnh</Button>
-                               
+                                <div id="albumDeODay">
+                                    @if ($sanPham)
+                                        @foreach ($sanPham->AlbumAnh() as $anh)
+                                            <img class="album" id_anh="{{$anh->id}}" src="{{ asset($anh->URL) }}" />
+                                        @endforeach
+                                    @endif
+                                </div>
+                                <button class="btn5-hover btn5 place-buy-btn js-buy-ticket"onclick="clickAnh = 2">Thêm ảnh</Button>                               
                             </div>
                         </div>
                     </div>
@@ -189,7 +198,7 @@
                     <div class="card-header">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h3 class="mb-0">Thêm sản phẩm</h3>
+                                <h3 class="mb-0">{{$sanPham===null?"Thêm sản phẩm":"Sửa sản phẩm"}}</h3>
                             </div>
                             <div class="col-4 text-right">
                                 <a href="#!" class="btn btn-sm btn-primary" id="dang">Đăng</a>
@@ -205,7 +214,7 @@
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-name">Tên sản phẩm</label>
                                             <input type="text" id="input-username" class="form-control" name="TENSP"
-                                                placeholder="Tên sản phẩm">
+                                                placeholder="Tên sản phẩm" value="{{$sanPham->TENSP??""}}">
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
@@ -213,8 +222,8 @@
                                             <label class="form-control-label" for="input-donvitinh">Đơn vị tính</label>
                                             <select class="form-control" name="DONVITINH">
                                                     <option value="Cái">Cái</option>
-                                                    <option value="Cái">Chiếc</option>
-                                                    <option value="Cái">Dây</option>
+                                                    <option value="Chiếc">Chiếc</option>
+                                                    <option value="Dây">Dây</option>
                                             </select>
                                         </div>
                                     </div>
@@ -224,14 +233,14 @@
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-first-name">Giá bán</label>
                                             <input type="text" id="input-first-name" class="form-control"
-                                                placeholder="Giá bán" name="GIABAN">
+                                                placeholder="Giá bán" name="GIABAN" value="{{$sanPham->GIABAN??""}}">
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-last-name">Giá khuyến mãi</label>
                                             <input type="text" id="input-last-name" class="form-control"
-                                                placeholder="Giá khuyến mãi" name="GIAMGIA">
+                                                placeholder="Giá khuyến mãi" name="GIAMGIA" value="{{$sanPham->GIAMGIA??""}}">
                                         </div>
                                     </div>
                                 </div>
@@ -245,8 +254,13 @@
                                                 <h2>Thương hiệu</h2>
                                                 <select class="form-control" name="MATHUONGHIEU">
                                                     @foreach ($thuongHieu as $th)
-                                                        <option value="{{ $th->id }}">{{ $th->TENTHUONGHIEU }}
-                                                        </option>
+                                                        @if ($sanPham)
+                                                            <option value="{{ $th->id }}" {{$sanPham->MATHUONGHIEU == $th->id?"selected":""}}>{{ $th->TENTHUONGHIEU }}
+                                                            </option>
+                                                        @else
+                                                            <option value="{{ $th->id }}">{{ $th->TENTHUONGHIEU }}
+                                                            </option>
+                                                        @endif                                                        
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -261,7 +275,7 @@
                                                     <button type="button" class="btn btn-danger">Link</button>
                                                 </div>
                                                 <input type="text" class="form-control" placeholder="Đường dẫn" id="duongDan"
-                                                    name="DUONGDAN">
+                                                    name="DUONGDAN" value="{{$sanPham->DUONGDAN??""}}">
                                             </div>
                                         </div>
                                     </div>
@@ -274,12 +288,14 @@
                                 <div class="form-group">
                                     <label class="form-control-label">Tóm tắt</label>
                                     <textarea rows="4" class="form-control"
-                                        placeholder="Mô tả ngắn gọn về sản phẩm trong khoảng 225 từ " name="NDTOMTAT"></textarea>
+                                        placeholder="Mô tả ngắn gọn về sản phẩm trong khoảng 225 từ " name="NDTOMTAT">
+                                    {{$sanPham->NDTOMTAT??""}}
+                                    </textarea>
                                 </div>
                                 <div class="form-group">
                                     <label class="from-control-label">Nội dung</label>
                                     <div>
-                                        <textarea id="editor" name="NOIDUNG"></textarea>
+                                        <textarea id="editor" name="NOIDUNG">{{$sanPham->NOIDUNG??""}}</textarea>
                                     </div>
                                 </div>
                             </div>

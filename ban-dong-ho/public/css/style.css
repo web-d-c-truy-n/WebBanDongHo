@@ -414,6 +414,7 @@ select{
 }
 .logo2{
 	float:left;
+	margin-top:40px;
 }
 .ftr-menu{
 	margin-top:50px;
@@ -1920,6 +1921,7 @@ select {
 }
 .logo2,.ftr-menu{
 	float:none;
+	
 }
 .bike-cart a.buy {
   padding: 0.5em 2em;

@@ -68,18 +68,27 @@
                   </div>
                 </div>
               </div>
+              
               <div class="row">
                 <div class="col-lg-6">
                   <div class="form-group">
-                    <a href="#!" class="btn btn-sm btn-primary">Đổi mật khẩu</a>
-                    <input type="text" id="input-first-name" class="form-control" placeholder="" value="">
+                    
+                    <label class="form-control-label" for="input-first-name">Mật khẩu cũ</label>
+                    <input type="password" id="input-first-name" class="form-control" placeholder="Password" value="">
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group">
-                    <label class="form-control-label" for="input-first-name">Facebook ID</label>
-                    <input type="tel" id="input-first-name" class="form-control" placeholder="Phone" value="">
+                    <label class="form-control-label" for="input-first-name">Mật khẩu mới</label>
+                    <input type="password" id="input-first-name" class="form-control" placeholder="Password" value="">
                   </div>
+                </div>
+              </div>
+              <a href="#!" class="btn btn-sm btn-primary" style="margin-left:auto;margin-right:auto;display:block;margin-bottom:0%">Đổi mật khẩu</a>
+              <div class="row">
+                <div class="col-md-12">
+                  <label class="form-control-label" for="input-first-name">Facebook</label>
+                  <input type="text" id="input-first-name" class="form-control" placeholder="Name" value="">
                 </div>
               </div>
             </div>

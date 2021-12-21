@@ -18,8 +18,8 @@ class CreateUsersTable extends Migration
             $table->string('HOTEN');
             $table->integer("GIOITINH");
             $table->date("NGAYSINH")->nullable();
-            $table->string("SDT",12)->unique();
-            $table->string('email',100)->unique();
+            $table->string("SDT",12);
+            $table->string('email',100);
             $table->string('name')->nullable();
             $table->string('password')->nullable();
             $table->integer('TRANGTHAI')->nullable();

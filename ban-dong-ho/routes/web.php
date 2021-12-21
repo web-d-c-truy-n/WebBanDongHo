@@ -37,13 +37,13 @@ Route::get('chi-tiet-bai-viet','HomeController@blog_details');
 Route::post('dat-hang','HomeController@ThanhToan');
 Route::get("dang-ky",'HomeController@DangKy');
 Route::post("dang-ky",'HomeController@DangKy');
-
-Route::prefix('admin')->group(function () {
+Route::get('admin/login','AdminController@login');
+Route::post('admin/admin_login', 'AdminController@Admin_Login');
+Route::group(['prefix' => 'admin', 'middleware' => ['admin']],function () {
     Route::get('/', 'AdminController@Index');
-    Route::get('login','AdminController@login');
+    Route::get('logout','AdminController@logout');
     Route::get('register','AdminController@register');
-    Route::get('order','AdminController@order');
-    Route::post('admin_login', 'AdminController@Admin_Login');
+    Route::get('order','AdminController@order');    
     Route::get('/them-san-pham','AdminController@add_product');
     Route::get('/tat-ca-san-pham','AdminController@product');
     Route::get('/thanh-vien','AdminController@customer');

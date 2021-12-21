@@ -137,7 +137,8 @@ class HomeController extends Controller
                 $chiTietDH->save();
             }            
             DB::commit();
-            return redirect("/");
+            $cookie = Cookie::make('gioHang', "[]", 10000000); 
+            return redirect("/")->withCookie($cookie);
         }catch(Exception $e){
             DB::rollBack();
         }

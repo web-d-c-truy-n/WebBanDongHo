@@ -77,7 +77,7 @@
                      </a>
                    </li>
                    <li class="nav-item">
-                     <a class="nav-link" href="upgrade.html">
+                     <a class="nav-link" href="{{URL::to('admin/logout')}}">
                        <i class="ni ni-send text-dark"></i>
                        <span class="nav-link-text">Log out</span>
                      </a>

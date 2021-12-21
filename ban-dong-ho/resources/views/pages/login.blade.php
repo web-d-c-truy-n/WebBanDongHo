@@ -37,29 +37,35 @@
     </style>
 @endsection
 @section('rederbody')
-<div id="signin">
-	<div class="form-title">Đăng nhập</div>
-	<div class="input-field">
-		<input type="email" id="email" autocomplete="off"/>
-		<i class="material-icons"></i>
-		<label for="email">Email/ Username</label>
-	</div>
-	<div class="input-field">
-		<input type="password" id="password"/>
-		<i class="material-icons"></i>
-		<label for="password">Mật khẩu</label>
-	</div>
-	<a href="" class="forgot-pw">Quên mật khẩu?</a>
-    <p>Chưa có tài khoản ? <a href="{{URL::to('/dang-ky')}}">Đăng ký</a></p>
-	<button class="login">Đăng nhập</button>
-	<div class="check">
-		<i class="material-icons"></i>
-	</div>
-</div>
+<form method="POST">
+    @csrf
+    <div id="signin">
+        <div class="form-title">Đăng nhập</div>
+        <div class="input-field">
+            <input type="email" id="email" name="email" autocomplete="off" />
+            <i class="material-icons"></i>
+            <label for="email">Email/ Username</label>
+        </div>
+        <div class="input-field">
+            <input type="password" id="password" name="password" />
+            <i class="material-icons"></i>
+            <label for="password">Mật khẩu</label>
+        </div>
+        @if ($errors->any())
+            <span style="color: red">{{ $errors->first() }}</span>
+        @endif
+        <a href="" class="forgot-pw">Quên mật khẩu?</a>
+        <p>Chưa có tài khoản ? <a href="#">Đăng ký</a></p>
+        <button class="login">Đăng nhập</button>
+        <div class="check">
+            <i class="material-icons"></i>
+        </div>
+    </div>
+</form>
 <div id="gif">
-	<a href="https://dribbble.com/shots/2197140-New-Material-Text-Fields">
-		<img src="https://d13yacurqjgara.cloudfront.net/users/472930/screenshots/2197140/efsdfsdae.gif" alt="">
-	</a>
+    <a href="https://dribbble.com/shots/2197140-New-Material-Text-Fields">
+        <img src="https://d13yacurqjgara.cloudfront.net/users/472930/screenshots/2197140/efsdfsdae.gif" alt="">
+    </a>
 </div>
 @endsection
 @section('js')

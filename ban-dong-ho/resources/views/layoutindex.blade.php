@@ -174,7 +174,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </li>
 
                         <li class="dropdown1"><a href="{{URL::to("/dang-nhap")}}" class="openModal">{{Auth::user()->name??"TÀI KHOẢN"}}</a>
-
+                            @if (Auth::user())
+                                <ul pclass="dropdown2">
+                                    <li><a>Thông tin</a></li>
+                                    <li><a>Tra cứu đơn hàng</a></li>
+                                    <li><a>Đăng xuất</a></li>
+                                </ul>
+                            @endif                                
                         </li>
                         <a class="shop" href="{{ URL::to('/gio-hang') }}"><img
                                 src="{{ asset('images/cart.png') }}" alt="" /><span class="badge"

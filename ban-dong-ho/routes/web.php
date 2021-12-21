@@ -26,6 +26,7 @@ Route::get('/san-pham','HomeController@products');
 Route::get('/thong-tin-san-pham/{duongDan}','HomeController@information');
 Route::get('/danh-sach-san-pham/{duongDan}','HomeController@listproducts');
 Route::get('/dang-nhap','HomeController@dangnhap');
+Route::post('/dang-nhap','LoginController@dangNhap');
 Route::post('/them-gio-hang','HomeController@themGioHang');
 Route::get('/thong-tin-don-hang','HomeController@order_information');
 Route::post('/xoa-gio-hang','HomeController@xoaGioHang');
@@ -35,6 +36,7 @@ Route::get('/blog','HomeController@blog');
 Route::get('chi-tiet-bai-viet','HomeController@blog_details');
 Route::post('dat-hang','HomeController@ThanhToan');
 Route::get("dang-ky",'HomeController@DangKy');
+Route::post("dang-ky",'HomeController@DangKy');
 
 Route::prefix('admin')->group(function () {
     Route::get('/', 'AdminController@Index');

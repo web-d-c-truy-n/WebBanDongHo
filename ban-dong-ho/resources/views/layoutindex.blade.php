@@ -173,7 +173,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                         </li>
 
-                        <li class="dropdown1"><a href="#" class="openModal">TÀI KHOẢN</a>
+                        <li class="dropdown1"><a href="{{URL::to("/dang-nhap")}}" class="openModal">TÀI KHOẢN</a>
 
                         </li>
                         <a class="shop" href="{{ URL::to('/gio-hang') }}"><img

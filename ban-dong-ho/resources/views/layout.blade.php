@@ -72,7 +72,7 @@
                             
                         </li>
                         
-                        <li class="dropdown1"><a href="#" class="openModal">TÀI KHOẢN</a>
+                        <li class="dropdown1"><a href="{{URL::to("/dang-nhap")}}" class="openModal">TÀI KHOẢN</a>
 
                         </li>
                         <a class="shop" href="{{URL::to("/gio-hang")}}"><img src="{{asset('images/cart.png')}}" alt=""><span class="badge" id="soLuongGio">{{$gioHang!==null && count($gioHang)!=0 ?count($gioHang):""}}</span></a>

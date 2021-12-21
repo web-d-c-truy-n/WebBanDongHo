@@ -55,8 +55,31 @@ class SanPhamController extends Controller
         return abort(404);        
     }
     public function suaSanPham(Request $request){
-        $sp = $request->all();
-        $kq = SanPham::updated($sp);
+        $sp = SanPham::where("id",$request->id)->first();
+        $sp->TENSP = $request->TENSP;
+        $sp->DUONGDAN = $request->DUONGDAN;
+        $sp->HINHDAIDIEN = $request->HINHDAIDIEN;
+        $sp->NDTOMTAT= $request->NDTOMTAT;
+        $sp->NOIDUNG=$request->NOIDUNG;
+        $sp->NGUOIDANG= Auth::user()->id;
+        $sp->DADUYET = true;
+        $sp->GIABAN = $request->GIABAN;
+        $sp->GIAMGIA=$request->GIAMGIA;
+        $sp->MATHUONGHIEU = $request->MATHUONGHIEU;
+        $sp->DONVITINH = $request->DONVITINH;
+        $kq = $sp->save();
+        $album = $request->album;
+        $i = 1;
+        // xóa tất cả ảnh cũ
+        Anh_SanPham::where("MASANPHAM",$sp->id)->delete();
+        foreach($album as $al){
+            $anh_SanPham = new Anh_SanPham();
+            $anh_SanPham->MAANH = $al;
+            $anh_SanPham->MASANPHAM = $sp->id;
+            $anh_SanPham->THUTU = $i;
+            $anh_SanPham->save();
+            $i++;
+        }        
         if($kq){
             return Response()->json(["kq"=>true]);
         }
@@ -64,8 +87,9 @@ class SanPhamController extends Controller
             return Response()->json(["kq"=>false]);
         }  
     }
-    public function duaVaoThungRac(Request $request){
-        
+    public function xoaSanPham(Request $request){
+        SanPham::where("id",$request->id)->delete();
+        return redirect()->back();        
     }
     public function themAnh(Request $request){
         file_put_contents(public_path("\\storages\\$request->name"),base64_decode($request->base64)); 

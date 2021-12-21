@@ -19,7 +19,7 @@ class CreateBaiVietsTable extends Migration
             $table->bigInteger("HINHDAIDIEN")->unsigned();
             $table->text("NOIDUNGTOMTAT");
             $table->text("NOIDUNG");
-            $table->bigInteger("KHACHHANG");
+            $table->bigInteger("NGUOIDANG");
             $table->integer("DADUYET");
             $table->timestamps();
             $table->engine = 'InnoDB';

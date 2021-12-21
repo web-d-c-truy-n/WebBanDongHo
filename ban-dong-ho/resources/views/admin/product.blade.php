@@ -55,11 +55,14 @@
                                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <i class="fas fa-ellipsis-v"></i>
                                             </a>
-                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                <a class="dropdown-item" href="{{URL::to("/admin/sua-san-pham/$sp->id")}}">Sửa</a>
-                                                <a class="dropdown-item" href="#">Xóa</a>
-
-                                            </div>
+                                            <form method="POST" action="{{URL::to('admin/xoa-san-pham')}}">
+                                                <input type="hidden" name="id" value="{{$sp->id}}"/>
+                                                @csrf
+                                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                                    <a class="dropdown-item" href="{{URL::to("/admin/sua-san-pham/$sp->id")}}">Sửa</a>
+                                                    <a class="dropdown-item" href="#" onclick="this.parentNode.parentNode.submit()">Xóa</a>
+                                                </div>
+                                            </form>                                            
                                         </div>
                                     </td>
                                 </tr>

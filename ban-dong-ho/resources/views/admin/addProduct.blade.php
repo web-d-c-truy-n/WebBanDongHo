@@ -207,6 +207,9 @@
                     </div>
                     <div class="card-body">
                         <form id="themSanPham">
+                            @if ($sanPham)
+                                <input type="hidden" value="{{$sanPham->id}}" name="id" />
+                            @endif
                             <h6 class="heading-small text-muted mb-4">Thông tin sản phẩm</h6>
                             <div class="pl-lg-4">
                                 <div class="row">
@@ -288,9 +291,7 @@
                                 <div class="form-group">
                                     <label class="form-control-label">Tóm tắt</label>
                                     <textarea rows="4" class="form-control"
-                                        placeholder="Mô tả ngắn gọn về sản phẩm trong khoảng 225 từ " name="NDTOMTAT">
-                                    {{$sanPham->NDTOMTAT??""}}
-                                    </textarea>
+                                        placeholder="Mô tả ngắn gọn về sản phẩm trong khoảng 225 từ " name="NDTOMTAT">{{$sanPham->NDTOMTAT??""}}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label class="from-control-label">Nội dung</label>
@@ -355,7 +356,6 @@
     <script>
         var clickAnh
         var token = "{{ csrf_token() }}"
-
         function chonAnh() {
             let url = $(this).attr("src");
             let id_anh = $(this).attr("id_anh")
@@ -389,26 +389,38 @@
                 p["_token"] = token;
                 $.ajax({
                     type: "POST",
-                    url: "{{ URL::to('/admin/them-san-pham') }}",
+                    url: "{{ URL::to($sanPham === null?'/admin/them-san-pham':'/admin/sua-san-pham') }}",
                     data: p,
                     dataType: "json",
                     success: function(rs) {
                         if (rs.kq == true) {
-                            alert("Thêm thành công")
-                            input.forEach(function(e) {
-                                $(`[name=${e.name}]`).val("")
-                            })
-                            $('#editor').trumbowyg("html","");
-                            $("#albumDeODay").html("")
-                            $("#anhDeODay").html("")
+                            @if ($sanPham)
+                                alert("Sửa thành công")
+                            @else
+                                alert("Thêm thành công")
+                                input.forEach(function(e) {
+                                    $(`[name=${e.name}]`).val("")
+                                })
+                                $('#editor').trumbowyg("html","");
+                                $("#albumDeODay").html("")
+                                $("#anhDeODay").html("")
+                            @endif                               
                         } else {
-                            alert("Thêm thất bại")
+                            @if ($sanPham)
+                                alert("Sửa thất bại")
+                            @else
+                                alert("Thêm thất bại")
+                            @endif                            
                         }
                     },
                     error: function(rs) {
                         debugger
                         console.log(rs)
-                        alert("Thêm thất bại")
+                        @if ($sanPham)
+                            alert("Sửa thất bại")
+                        @else
+                            alert("Thêm thất bại")
+                        @endif   
                     }
                 });
             })

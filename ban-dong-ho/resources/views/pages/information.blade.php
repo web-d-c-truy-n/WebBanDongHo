@@ -91,7 +91,7 @@
                             <p>{{$sanPham->GIAMGIA}} <label>vnd</label></p>
                             <div class="btn_form">
                                 <a href="cart.html">Mua ngay</a>
-                                <a href="#" onclick="themGioHang({{$sp->id}},1)">THÊM VÀO GIỎ</a>
+                                <a href="#" onclick="themGioHang({{$sanPham->id}},1)">THÊM VÀO GIỎ</a>
                             </div>
                             <div class="bike-type">
                                 <p>THƯƠNG HIỆU ::<a href="{{URL::to("/danh-sach-san-pham/".$sanPham->ThuongHieu()->DUONGDAN)}}">{{$sanPham->ThuongHieu()->TENTHUONGHIEU}}</a></p>

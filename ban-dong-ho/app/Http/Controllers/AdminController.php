@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\BaiViet;
 use App\User;
 use Facade\FlareClient\Http\Response;
 use Illuminate\Support\Facades\Session;
@@ -12,6 +13,7 @@ use Illuminate\Support\Facades\URL;
 use App\Model\ThuongHieu;
 use App\Model\HinhAnh;
 use App\Model\SanPham;
+use App\Model\DonHang;
 
 class AdminController extends Controller
 {
@@ -26,13 +28,21 @@ class AdminController extends Controller
         return view('admin.register');
     }
     public function order(){
-        return view('admin.order');
+        $donHang = DonHang::orderBy("created_at","DESC")->paginate(5);
+        return view('admin.order', ["donHang"=>$donHang]);
     }
     public function add_blog(){
-        return view('admin.addblog');
+        $hinhAnh = HinhAnh::all();
+        return view('admin.addblog',["baiViet"=>null,"hinhAnh"=>$hinhAnh]);
+    }
+    public function edit_blog($id){
+        $baiViet = BaiViet::where("id",$id)->first();
+        $hinhAnh = HinhAnh::all();
+        return view('admin.addblog',["baiViet"=>$baiViet,"hinhAnh"=>$hinhAnh]);
     }
     public function blog(){
-        return view('admin.blog');
+        $baiViet = BaiViet::paginate(5);
+        return view('admin.blog',["baiViet"=>$baiViet]);
     }
     public function add_product(){
         $thuongHieu = ThuongHieu::all();

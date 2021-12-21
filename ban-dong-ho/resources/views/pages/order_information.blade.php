@@ -265,7 +265,7 @@
 				<div class="form-group">
                     <p>Ghi chú<span></span></p>
 
-                    <textarea name="message" rows="14" data-rule="required"
+                    <textarea name="GHICHU" rows="14" data-rule="required"
                         data-msg="Vérifiez votre saisie sur les champs : Le champ 'Message' doit être renseigné."></textarea>
                     <div class="validation"></div>
                 </div>

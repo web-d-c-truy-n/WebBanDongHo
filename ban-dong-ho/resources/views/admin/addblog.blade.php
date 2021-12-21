@@ -169,7 +169,11 @@
                         <div class="row">
                             <div class="col">
                                 <h2>Ảnh bài viết</h2>
-                                <div id="anhDeODay"></div>
+                                <div id="anhDeODay">
+                                    @if ($baiViet)
+                                        <img class="anhBia" id_anh="{{$baiViet->HinhAnh()->id}}" src="{{asset($baiViet->HinhAnh()->URL)}}" />                                        
+                                    @endif
+                                </div>
                                 <button class="btn5-hover btn5 place-buy-btn js-buy-ticket"onclick="clickAnh = 1">Thêm ảnh</Button>
                             </div>
                         </div>
@@ -182,7 +186,11 @@
                     <div class="card-header">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h3 class="mb-0">Thêm bài viết</h3>
+                                @if ($baiViet)
+                                    <h3 class="mb-0">Sửa bài viết</h3>
+                                @else
+                                    <h3 class="mb-0">Thêm bài viết</h3>
+                                @endif                                
                             </div>
                             <div class="col-4 text-right">
                                 <a href="#!" class="btn btn-sm btn-primary" id="dang">Đăng</a>
@@ -192,27 +200,21 @@
                     <div class="card-body">
                         <form id="themSanPham">
                             <h6 class="heading-small text-muted mb-4">Thông tin bài viết</h6>
+                            @if ($baiViet)                                
+                                 <input type="hidden" value="{{$baiViet->id}}" name="id" />
+                            @endif
+                           
                             <div class="pl-lg-4">
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-name">Tên bài viết</label>
-                                            <input type="text" id="input-username" class="form-control" name=""
-                                                placeholder="Tên bài viết">
+                                            <input type="text" id="input-username" class="form-control" name="TENBAIVIET"
+                                                placeholder="Tên bài viết" value="{{$baiViet->TENBAIVIET??""}}">
                                         </div>
                                     </div>
                                    
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="input-first-name">Người đăng</label>
-                                            <input type="text" id="input-first-name" class="form-control"
-                                                placeholder="Người đăng" name="">
-                                        </div>
-                                    </div>
-                                   
-                                </div>
+                                </div>                                
                             </div>
                             <hr class="my-4">
                        
@@ -222,12 +224,12 @@
                                 <div class="form-group">
                                     <label class="form-control-label">Tóm tắt</label>
                                     <textarea rows="4" class="form-control"
-                                        placeholder="Mô tả ngắn gọn về bài viết trong khoảng 225 từ " name="NDTOMTAT"></textarea>
+                                        placeholder="Mô tả ngắn gọn về bài viết trong khoảng 225 từ " name="NOIDUNGTOMTAT">{{$baiViet->NOIDUNGTOMTAT??""}}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label class="from-control-label">Nội dung</label>
                                     <div>
-                                        <textarea id="editor" name="NOIDUNG"></textarea>
+                                        <textarea id="editor" name="NOIDUNG">{{$baiViet->NOIDUNG??""}}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -250,13 +252,13 @@
             </header>
             <div class="modal-body">
                 <div style="height: 300px; overflow: scroll;" id="chenAnh">
-                   {{--  @foreach ($hinhAnh as $hinh)
+                    @foreach ($hinhAnh as $hinh)
                         <img class="anh" id_anh="{{ $hinh->id }}" src="{{ asset($hinh->URL) }}" />
-                    @endforeach --}}
+                    @endforeach
                 </div>
             </div>
             <footer class="modal-footer">
-               {{--  <input type="file" onchange="base64(this,callBack)" /> --}}
+                <input type="file" onchange="base64(this,callBack)" />
             </footer>
         </div>
     </div>
@@ -283,5 +285,112 @@
     <script src="{{ asset('trumbowyg/dist/trumbowyg.min.js') }}"></script>
     <script>
         $('#editor').trumbowyg();
+    </script>
+    <script>
+        var clickAnh
+        var token = "{{ csrf_token() }}"
+        function chonAnh() {
+            let url = $(this).attr("src");
+            let id_anh = $(this).attr("id_anh")
+            if (clickAnh == 1) {
+                $("#anhDeODay").html("")
+                $(`<img class="anhBia" id_anh="${id_anh}" src="${url}" />`).appendTo("#anhDeODay");
+                modal.classList.remove('open')
+            } else if (clickAnh == 2) {
+                $(`<img class="album" id_anh="${id_anh}" src="${url}" />`).appendTo("#albumDeODay");
+            }
+        }
+        $(document).ready(function() {
+            $(".anh").click(chonAnh)
+            $("#input-username").change(function(){                
+                $("#duongDan").val(bodauTiengViet($(this).val().trim()))
+            })
+            $("#dang").click(function() {
+                let input = $("#themSanPham").serializeArray()
+                let p = {}
+                let idAnhBia = parseInt($("#anhDeODay").find("img").first().attr("id_anh"))                            
+                input.forEach(function(e) {
+                    p[e.name] = e.value
+                })
+                p["HINHDAIDIEN"] = idAnhBia;
+                p["_token"] = token;
+                $.ajax({
+                    type: "POST",
+                    url: "{{ URL::to('admin/them-sua-bai-viet') }}",
+                    data: p,
+                    dataType: "json",
+                    success: function(rs) {
+                        if (rs.kq == true) {
+                            @if ($baiViet)
+                                alert("Sửa thành công")
+                            @else
+                                alert("Thêm thành công")
+                                input.forEach(function(e) {
+                                    $(`[name=${e.name}]`).val("")
+                                })
+                                $('#editor').trumbowyg("html","");
+                                $("#albumDeODay").html("")
+                                $("#anhDeODay").html("")
+                            @endif                               
+                        } else {
+                            @if ($baiViet)
+                                alert("Sửa thất bại")
+                            @else
+                                alert("Thêm thất bại")
+                            @endif                            
+                        }
+                    },
+                    error: function(rs) {
+                        debugger
+                        console.log(rs)
+                        @if ($baiViet)
+                            alert("Sửa thất bại")
+                        @else
+                            alert("Thêm thất bại")
+                        @endif   
+                    }
+                });
+            })
+        });
+
+        function callBack(data) {
+            $.ajax({
+                type: "POST",
+                url: "{{ URL::to('/admin/them-anh') }}",
+                data: {
+                    base64: data.base64,
+                    name: data.name,
+                    _token: token
+                },
+                dataType: "json",
+                success: function(rs) {
+                    let element = $(`<img class'anh' id_anh="${rs.id}" src="${rs.url}" />`).click(chonAnh)
+                    $(element).prependTo("#chenAnh")
+                }
+            });
+        }
+
+        function base64(element, callback) {
+            var file = element.files[0];
+            var reader = new FileReader();
+            reader.onloadend = function() {
+                file["base64"] = reader.result.split(",")[1]
+                callBack(file)
+            }
+            reader.readAsDataURL(file);
+        }
+        function bodauTiengViet(str) {
+            str = str.toLowerCase();
+            str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, 'a');
+            str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, 'e');
+            str = str.replace(/ì|í|ị|ỉ|ĩ/g, 'i');
+            str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, 'o');
+            str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, 'u');
+            str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, 'y');
+            str = str.replace(/đ/g, 'd');
+            str = str.replace(/\W+/g, ' ');
+            str = str.replace(/\s/g, '-');
+            return str;
+        }
     </script>
 @endsection

@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 use App\Model\HinhAnh;
 use App\Model\Anh_SanPham;
 use App\Model\ThuongHieu;
-
+use Illuminate\Database\Eloquent\SoftDeletes;
 class SanPham extends Model
 {
     //
+    use SoftDeletes;
     protected $dates = ['deleted_at'];
 
     public function HinhAnh(){

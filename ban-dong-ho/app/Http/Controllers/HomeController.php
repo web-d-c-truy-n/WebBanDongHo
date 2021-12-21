@@ -34,6 +34,9 @@ class HomeController extends Controller
     public function blog_details(){
         return view('pages.blog_details');
     }
+    public function information_account(){
+        return view('pages.information_account');
+    }
     public function cart(){
         return view('pages.cart');
     }

@@ -34,6 +34,7 @@ Route::get("/lay-quan-huyen/{maTinh}","DiaDiemController@layCacQuanHuyen");
 Route::get("/lay-phuong-xa/{maQuan}","DiaDiemController@layCacPhuongXa");
 Route::get('/blog','HomeController@blog');
 Route::get('chi-tiet-bai-viet','HomeController@blog_details');
+Route::get('thong-tin-tai-khoan','HomeController@information_account');
 Route::post('dat-hang','HomeController@ThanhToan');
 Route::get("dang-ky",'HomeController@DangKy');
 Route::post("dang-ky",'HomeController@DangKy');

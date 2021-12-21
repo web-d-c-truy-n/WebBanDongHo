@@ -50,7 +50,7 @@
 		<label for="password">Mật khẩu</label>
 	</div>
 	<a href="" class="forgot-pw">Quên mật khẩu?</a>
-    <p>Đã có tài khoản ? <a href="#">Đăng ký</a></p>
+    <p>Chưa có tài khoản ? <a href="#">Đăng ký</a></p>
 	<button class="login">Đăng nhập</button>
 	<div class="check">
 		<i class="material-icons"></i>

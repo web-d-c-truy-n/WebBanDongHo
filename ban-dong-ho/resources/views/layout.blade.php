@@ -100,7 +100,7 @@
             <div class="clearfix"></div>
         </div>
     </div>
-    @include('common.login')
+    <link href="{{ asset('/css/register.css') }}" rel="stylesheet" type="text/css" />
     <!---->
     @include('common.themGio')
     @yield("js")

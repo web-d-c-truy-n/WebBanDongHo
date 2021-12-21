@@ -16,8 +16,7 @@ class CreateDonHangsTable extends Migration
         Schema::create('don_hangs', function (Blueprint $table) {
             $table->id();
             $table->bigInteger("MANGUOIDUNG")->unsigned();
-            $table->date("NGAYDAT");
-            $table->date("NGAYGIAOHANG");
+            $table->date("NGAYGIAOHANG")->nullable();
             $table->string("DIACHIGIAOHANG");
             $table->string("GHICHU")->nullable();
             $table->string("TRANGTHAI");

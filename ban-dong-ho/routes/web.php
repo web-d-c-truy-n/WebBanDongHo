@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use Whoops\Run;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,8 @@ Route::get("/lay-quan-huyen/{maTinh}","DiaDiemController@layCacQuanHuyen");
 Route::get("/lay-phuong-xa/{maQuan}","DiaDiemController@layCacPhuongXa");
 Route::get('/blog','HomeController@blog');
 Route::get('chi-tiet-bai-viet','HomeController@blog_details');
+Route::post('dat-hang','HomeController@ThanhToan');
+Route::get("dang-ky",'HomeController@DangKy');
 
 Route::prefix('admin')->group(function () {
     Route::get('/', 'AdminController@Index');

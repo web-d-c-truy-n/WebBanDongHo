@@ -166,9 +166,9 @@
 @endsection
 @section('rederbody')
     <h1>Thông tin đơn đặt hàng</h1>
-    <form>
+    <form action="{{URL::to("dat-hang")}}" method="POST">
         <h1>Điền đầy đủ thông tin, nhân viên sẽ liên lạc lại sau khi nhận được đơn hàng</h1>
-
+        @csrf
         <div class="contentform">
             <div id="sendmessage">Đặt thành công.</div>
 
@@ -177,14 +177,14 @@
                 <div class="form-group">
                     <p>Họ và tên:<span>*</span></p>
 
-                    <input type="text" name="nom" id="nom" data-rule="required"
+                    <input type="text" name="HOTEN" id="HOTEN" data-rule="required"
                         data-msg="Vérifiez votre saisie sur les champs : Le champ 'Nom' doit être renseigné." />
                     <div class="validation"></div>
                 </div>
 
                 <div class="form-group">
                     <p>Giới tính<span>*</span></p>
-					<select class="field-input" id="customer_shipping_province" name="customer_shipping_province">
+					<select class="field-input" id="GIOITINH" name="GIOITINH">
 						<option data-code="null" value="null" selected="">
 							Chọn giới tính </option>   
 							<option value="1">Nam</option>   
@@ -208,7 +208,7 @@
                 <div class="form-group">
                     <p>Điện thoại<span>*</span></p>
 
-                    <input type="text" name="postal" id="postal" data-rule="required"
+                    <input type="text" name="SDT" id="postal" data-rule="required"
                         data-msg="Vérifiez votre saisie sur les champs : Le champ 'Code postal' doit être renseigné." />
                     <div class="validation"></div>
                 </div>
@@ -222,7 +222,7 @@
                 <div class="field  field-half">
                     <div class="field-input-wrapper field-input-wrapper-select">
                         <p>Tỉnh thành<span>*</span></p>
-                        <select class="field-input" id="tinhThanh" name="customer_shipping_province">
+                        <select class="field-input" id="tinhThanh" name="MATINH">
                             <option data-code="null" value="null" selected="">
                                 Chọn tỉnh / thành </option>   
 							@foreach ($tinhThanh as $tinh )
@@ -234,7 +234,7 @@
 				<div class="field  field-half">
                     <div class="field-input-wrapper field-input-wrapper-select">
                         <p>Quận huyện<span>*</span></p>
-                        <select class="field-input" id="quanHuyen" name="customer_shipping_province">
+                        <select class="field-input" id="quanHuyen" name="MAQUAN_HUYEN">
                             <option data-code="null" value="null" selected="">
                                 Chọn quận / huyện </option>   							                         
                         </select>
@@ -245,7 +245,7 @@
 				<div class="field  field-half">
                     <div class="field-input-wrapper field-input-wrapper-select">
                         <p>Phường xã<span>*</span></p>
-                        <select class="field-input" id="phuongXa" name="customer_shipping_province">
+                        <select class="field-input" id="phuongXa" name="MAPHUONG_XA">
                             <option data-code="null" value="null" selected="">
                                 Chọn phường / xã </option>                            
                         </select>
@@ -257,7 +257,7 @@
 				<div class="form-group">
                     <p>Địa chỉ<span>*</span></p>
 
-                    <input type="text" name="phone" id="phone" data-rule="maxlen:10"
+                    <input type="text" name="DIACHI" id="phone" data-rule="maxlen:10"
                         data-msg="Vérifiez votre saisie sur les champs : Le champ 'Téléphone' doit être renseigné. Minimum 10 chiffres" />
                     <div class="validation"></div>
                 </div>

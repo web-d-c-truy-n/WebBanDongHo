@@ -31,6 +31,8 @@ class DbNhapCacTinhThanh extends Migration
             $user->name = "admin";
             $user->password = md5("123456");
             $user->save();
+            DB::unprepared("set global net_buffer_length=1000000; 
+            set global max_allowed_packet=1000000000;");
             DB::unprepared(file_get_contents(storage_path("\\don_vi_hanh_chinh.sql")));
         }
     }

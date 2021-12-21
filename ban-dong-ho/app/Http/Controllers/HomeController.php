@@ -9,6 +9,15 @@ use Illuminate\Support\Facades\Cookie;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Crypt;
 use App\Model\TinhThanh;
+use Exception;
+use Illuminate\Support\Facades\DB;
+use App\Model\DonHang;
+use App\Model\CT_DonHang;
+use App\User;
+use App\Model\PhuongXa;
+use App\Model\QuanHuyen;
+use Illuminate\Support\Facades\Auth;
+
 class HomeController extends Controller
 {
     public function index(){
@@ -89,5 +98,51 @@ class HomeController extends Controller
         $response = response()->json(array('status' => 'ok',"count"=>count($gioHang)));  
         $response->headers->setCookie($cookie); 
         return $response;
+    }
+    public function ThanhToan(Request $request){
+        DB::beginTransaction();
+        try{
+            $tinhThanh = TinhThanh::where("matp",$request->MATINH)->first();
+            $quanHuyen = QuanHuyen::where("maqh",$request->MAQUAN_HUYEN)->first();
+            $phuongXa = PhuongXa::where("xaid",$request->MAPHUONG_XA)->first();
+            $user = null;
+            if(Auth::user() === null){
+                $user = new User();
+                $user->HOTEN = $request->HOTEN;
+                $user->GIOITINH = $request->GIOITINH;
+                $user->SDT = $request->SDT;
+                $user->email = $request->email;
+                $user->MATINH = $tinhThanh->id;
+                $user->MAQUAN_HUYEN = $quanHuyen->id;
+                $user->MAPHUONG_XA = $phuongXa->id;
+                $user->DIACHI = $request->DIACHI;
+                $user->save();
+            }else{
+                $user = Auth::user();
+            }
+            $donHang = new DonHang();
+            $donHang->MANGUOIDUNG = $user->id;
+            $donHang->DIACHIGIAOHANG = "$user->DIACHI, $phuongXa->name, $quanHuyen->name, $tinhThanh->name";
+            $donHang->GHICHU = $request->GHICHU;
+            $donHang->TRANGTHAI = "Khởi tạo";
+            $donHang->save();
+            $gioHang = json_decode(Cookie::get("gioHang"));
+            foreach($gioHang as $gh){
+                $chiTietDH = new CT_DonHang();
+                $chiTietDH->SODONHANG = $donHang->id;            
+                $chiTietDH->MASANPHAM = $gh->idSP;
+                $chiTietDH->SOLUONG = $gh->soLuong;
+                $chiTietDH->GIABAN = SanPham::where("id",$gh->idSP)->first()->GIAMGIA * $gh->soLuong;
+                $chiTietDH->GIAKHUYENMAI = SanPham::where("id",$gh->idSP)->first()->GIAMGIA * $gh->soLuong;
+                $chiTietDH->save();
+            }            
+            DB::commit();
+            return redirect("/");
+        }catch(Exception $e){
+            DB::rollBack();
+        }
+    }
+    public function DangKy(){
+        return view('pages.register');
     }
 }

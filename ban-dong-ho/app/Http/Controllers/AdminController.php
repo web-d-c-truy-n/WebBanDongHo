@@ -31,6 +31,9 @@ class AdminController extends Controller
         $donHang = DonHang::orderBy("created_at","DESC")->paginate(5);
         return view('admin.order', ["donHang"=>$donHang]);
     }
+    public function order_details(){
+        return view('admin.order_details');
+    }
     public function add_blog(){
         $hinhAnh = HinhAnh::all();
         return view('admin.addblog',["baiViet"=>null,"hinhAnh"=>$hinhAnh]);

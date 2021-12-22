@@ -59,6 +59,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']],function () {
     Route::post('/them-sua-bai-viet','Admin\BaiVietController@themHoacSuaBaiViet');
     Route::get('/sua-bai-viet/{id}','AdminController@edit_blog');
     Route::post('/xoa-bai-viet','Admin\BaiVietController@xoaBaiViet');
+    Route::get('/chi-tiet-hoa-don','AdminController@order_details');
 });
 
 Route::get('test', function(){

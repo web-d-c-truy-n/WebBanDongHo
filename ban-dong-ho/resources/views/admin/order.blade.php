@@ -36,7 +36,7 @@
                                         {{$dh->TongCong()}} vnd
                                     </td>
                                     <td>
-                                        <span class="badge badge-dot mr-4">
+                                        <span class="badge badge-dot mr-4" trangThai="{{$dh->id}}">
                                             <span class="status">{{$dh->TRANGTHAI}}</span>
                                         </span>
                                     </td>
@@ -56,11 +56,11 @@
                                                 <i class="fas fa-ellipsis-v"></i>
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                <a class="dropdown-item" href="#">Đang xử lý</a>
-                                                <a class="dropdown-item" href="#">Đang vận chuyển</a>
-                                                <a class="dropdown-item" href="#">Hoàn tất</a>
-												<a class="dropdown-item" href="#">Xem chi tiết</a>
-                                                <a class="dropdown-item" href="#">Hủy</a>
+                                                <a class="dropdown-item" href="#" onclick="capNhatTrangThai('Đang xử lý',{{$dh->id}})">Đang xử lý</a>
+                                                <a class="dropdown-item" href="#" onclick="capNhatTrangThai('Đang vận chuyển',{{$dh->id}})">Đang vận chuyển</a>
+                                                <a class="dropdown-item" href="#" onclick="capNhatTrangThai('Hoàn tất',{{$dh->id}})">Hoàn tất</a>
+												<a class="dropdown-item" href="{{URL::to("admin/chi-tiet-hoa-don/$dh->id")}}">Xem chi tiết</a>
+                                                <a class="dropdown-item" href="#" onclick="capNhatTrangThai('Hủy',{{$dh->id}})">Hủy</a>
                                             </div>
                                         </div>
                                     </td>
@@ -104,3 +104,20 @@
 
     </div>
 @endsection
+@section("js")
+    <script>
+        function capNhatTrangThai(trangThai,id){
+            $.ajax({
+                type: "POST",
+                url: "{{URL::to('admin/doi-trang-thai')}}",
+                data: {trangThai: trangThai,id:id, _token:"{{ csrf_token() }}"},
+                dataType: "json",
+                success: function (rs) {
+                    if(rs){
+                        $("[trangThai="+id+"]").text(trangThai)
+                    }
+                }
+            });
+        }
+    </script>
+@endsection 

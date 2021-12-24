@@ -41,6 +41,12 @@
                      </a>
                    </li>
                    <li class="nav-item">
+                    <a class="nav-link" href="{{URL::to('/admin/blog')}}">
+                      <i class="ni ni-spaceship"></i>
+                      <span class="nav-link-text">Bài viết</span>
+                    </a>
+                  </li>
+                   <li class="nav-item">
                      <a class="nav-link" href="{{URL::to('/admin/thanh-vien')}}">
                        <i class="ni ni-planet text-orange"></i>
                        <span class="nav-link-text">Khách hàng</span>
@@ -67,27 +73,21 @@
                    <li class="nav-item">
                      <a class="nav-link" href="{{URL::to('admin/login')}}">
                        <i class="ni ni-key-25 text-info"></i>
-                       <span class="nav-link-text">Login</span>
+                       <span class="nav-link-text">Đăng nhập</span>
                      </a>
                    </li>
                    <li class="nav-item">
                      <a class="nav-link" href="{{URL::to('admin/register')}}">
                        <i class="ni ni-circle-08 text-pink"></i>
-                       <span class="nav-link-text">Register</span>
+                       <span class="nav-link-text">Đăng ký</span>
                      </a>
                    </li>
                    <li class="nav-item">
                      <a class="nav-link" href="{{URL::to('admin/logout')}}">
                        <i class="ni ni-send text-dark"></i>
-                       <span class="nav-link-text">Log out</span>
+                       <span class="nav-link-text">Đăng xuất</span>
                      </a>
-                   </li>
-                   <li class="nav-item">
-                    <a class="nav-link" href="{{URL::to('/admin/blog')}}">
-                      <i class="ni ni-spaceship"></i>
-                      <span class="nav-link-text">Blog</span>
-                    </a>
-                  </li>
+                   </li>                   
                  </ul>
                </div>
              </div>
@@ -295,7 +295,7 @@
                            <img alt="Image placeholder" src="http://localhost:8000/templateAdmin/assets/img/theme/team-4.jpg">
                          </span>
                          <div class="media-body  ml-2  d-none d-lg-block">
-                           <span class="mb-0 text-sm  font-weight-bold">{{-- {{Auth::user()->name}} --}}</span>
+                           <span class="mb-0 text-sm  font-weight-bold">{{Auth::user()->HOTEN}}</span>
                          </div>
                        </div>
                      </a>

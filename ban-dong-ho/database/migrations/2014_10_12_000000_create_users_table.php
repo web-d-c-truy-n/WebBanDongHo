@@ -16,9 +16,9 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('HOTEN');
-            $table->integer("GIOITINH");
+            $table->integer("GIOITINH")->nullable();
             $table->date("NGAYSINH")->nullable();
-            $table->string("SDT",12);
+            $table->string("SDT",12)->nullable();
             $table->string('email',100);
             $table->string('name')->nullable();
             $table->string('password')->nullable();
@@ -30,6 +30,7 @@ class CreateUsersTable extends Migration
             $table->bigInteger('MAPHUONG_XA')->unsigned()->nullable();
             $table->integer('VAITRO')->nullable();
             $table->string('FACEBOOK_ID')->nullable();
+            $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();
             $table->engine = 'InnoDB';

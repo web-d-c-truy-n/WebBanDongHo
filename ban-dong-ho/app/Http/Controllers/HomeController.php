@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\BaiViet;
 use Illuminate\Http\Request;
 use App\Model\SanPham;
 use App\Model\ThuongHieu;
@@ -17,6 +18,7 @@ use App\User;
 use App\Model\PhuongXa;
 use App\Model\QuanHuyen;
 use Illuminate\Support\Facades\Auth;
+use Helper\Common;
 
 class HomeController extends Controller
 {
@@ -29,13 +31,20 @@ class HomeController extends Controller
         return view('pages.order_information',["tinhThanh"=>$tinhThanh]);
     }
     public function blog(){
-        return view('pages.blog');
+        $blog = BaiViet::paginate(20);
+        return view('pages.blog',["blog"=>$blog]);
     }
-    public function blog_details(){
-        return view('pages.blog_details');
+    public function blog_details($id){
+        $baiViet = BaiViet::where("id",$id)->first();
+        return view('pages.blog_details',["baiViet"=>$baiViet]);
     }
     public function information_account(){
-        return view('pages.information_account');
+        $user = Auth::user();
+        $tinhThanh = TinhThanh::where("id",$user->MATINH)->first();
+        $quanHuyen = QuanHuyen::where("id",$user->MAQUAN_HUYEN)->first();
+        $phuongXa = PhuongXa::where("id",$user->MAPHUONG_XA)->first();
+        $diaDiem = Common::layDiaDiemUser($tinhThanh->matp??null,$quanHuyen->maqh??null,$phuongXa->xaid??null);
+        return  view('pages.information_account',["user"=>$user,"diaDiem"=>$diaDiem]);
     }
     public function cart(){
         return view('pages.cart');
@@ -135,8 +144,8 @@ class HomeController extends Controller
                 $chiTietDH->SODONHANG = $donHang->id;            
                 $chiTietDH->MASANPHAM = $gh->idSP;
                 $chiTietDH->SOLUONG = $gh->soLuong;
-                $chiTietDH->GIABAN = SanPham::where("id",$gh->idSP)->first()->GIAMGIA * $gh->soLuong;
-                $chiTietDH->GIAKHUYENMAI = SanPham::where("id",$gh->idSP)->first()->GIAMGIA * $gh->soLuong;
+                $chiTietDH->GIABAN = SanPham::where("id",$gh->idSP)->first()->GIAMGIA;
+                $chiTietDH->GIAKHUYENMAI = SanPham::where("id",$gh->idSP)->first()->GIAMGIA;
                 $chiTietDH->save();
             }            
             DB::commit();

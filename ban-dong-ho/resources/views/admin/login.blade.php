@@ -13,8 +13,8 @@
                         <div class="btn-wrapper text-center">
                             <a href="#" class="btn btn-neutral btn-icon">
                                 <span class="btn-inner--icon"><img
-                                        src="{{ asset('templateAdmin/assets/img/icons/common/github.svg') }}"></span>
-                                <span class="btn-inner--text">Github</span>
+                                        src="{{ asset('templateAdmin/assets/img/icons/common/768px-Facebook_logo_36x36.svg.png') }}"></span>
+                                <span class="btn-inner--text">Facebook</span>
                             </a>
                             <a href="#" class="btn btn-neutral btn-icon">
                                 <span class="btn-inner--icon"><img

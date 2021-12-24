@@ -55,7 +55,7 @@
             <span style="color: red">{{ $errors->first() }}</span>
         @endif
         <a href="" class="forgot-pw">Quên mật khẩu?</a>
-        <p>Chưa có tài khoản ? <a href="#">Đăng ký</a></p>
+        <p>Chưa có tài khoản ? <a href="{{URL::to("dang-ky")}}">Đăng ký</a></p>
         <button class="login">Đăng nhập</button>
         <div class="check">
             <i class="material-icons"></i>

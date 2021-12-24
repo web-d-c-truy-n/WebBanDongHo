@@ -14,6 +14,12 @@ use App\Model\ThuongHieu;
 use App\Model\HinhAnh;
 use App\Model\SanPham;
 use App\Model\DonHang;
+use App\Model\CT_DonHang;
+use App\Model\TinhThanh;
+use App\Model\QuanHuyen;
+use App\Model\PhuongXa;
+use Exception;
+use Helper\Common;
 
 class AdminController extends Controller
 {
@@ -31,8 +37,10 @@ class AdminController extends Controller
         $donHang = DonHang::orderBy("created_at","DESC")->paginate(5);
         return view('admin.order', ["donHang"=>$donHang]);
     }
-    public function order_details(){
-        return view('admin.order_details');
+    public function order_details($id){
+        $donHang = DonHang::where("id",$id)->first();
+        $ct_donHang = CT_DonHang::where("SODONHANG",$id)->get();
+        return view('admin.order_details',["donHang"=>$donHang,"ct_donHang"=>$ct_donHang]);
     }
     public function add_blog(){
         $hinhAnh = HinhAnh::all();
@@ -63,10 +71,17 @@ class AdminController extends Controller
         return view('admin.product',["sanPham"=>$sanPham]);
     }
     public function customer(){
-        return view('admin.customer');
+        $users = User::where("VAITRO",null)->paginate(5);
+        return view('admin.customer',["users"=>$users]);
     }
     public function profile(){
-        return  view('admin.profile');
+        $user = Auth::user();
+        $tinhThanh = TinhThanh::where("id",$user->MATINH)->first();
+        $quanHuyen = QuanHuyen::where("id",$user->MAQUAN_HUYEN)->first();
+        $phuongXa = PhuongXa::where("id",$user->MAPHUONG_XA)->first();
+        $diaDiem = Common::layDiaDiemUser($tinhThanh->matp??null,$quanHuyen->maqh??null,$phuongXa->xaid??null);
+        return  view('admin.profile',["user"=>$user,"diaDiem"=>$diaDiem]);
+            
     }
     public function Admin_Login(Request $request){
         $username = $request -> username;
@@ -83,5 +98,4 @@ class AdminController extends Controller
         Auth::logout();
         return redirect('/admin/login');
     }
-
 }

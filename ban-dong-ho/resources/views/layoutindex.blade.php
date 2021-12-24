@@ -177,8 +177,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             @if (Auth::user())
                                 <ul pclass="dropdown2">
                                     <li><a href="{{URL::to('/thong-tin-tai-khoan')}}">Thông tin</a></li>
-                                    <li><a>Tra cứu đơn hàng</a></li>
-                                    <li><a>Đăng xuất</a></li>
+                                    
+                                    <li><a href="{{URL::to('/dang-xuat')}}">Đăng xuất</a></li>
                                 </ul>
                             @endif                                
                         </li>

@@ -272,47 +272,53 @@ body {
 </style>
 @endsection
 @section('rederbody')
-<div class="projcard-container">
-		
-	<div class="projcard projcard-blue">
-		<div class="projcard-innerbox">
-			<img class="projcard-img" src="https://picsum.photos/800/600?image=1041" />
-			<div class="projcard-textbox">
-				<div class="projcard-title">Tên bài viết</div>
-				<div class="projcard-subtitle"></div>
-				<div class="projcard-bar"></div>
-				<div class="projcard-description">Nội dung bài viết</div>
-				<div class="projcard-tagbox">
-					<button class="snip1457 hover">Đọc thêm</button>
+
+<div class="projcard-container">	
+	@foreach ($blog as $index=>$bv)
+		@if ($index%2==0)
+			<div class="projcard projcard-blue" link="{{URL::to("chi-tiet-bai-viet/$bv->id")}}">
+				<div class="projcard-innerbox">
+					<img class="projcard-img" src="{{ asset($bv->HinhAnh()->URL) }}" />
+					<div class="projcard-textbox">
+						<div class="projcard-title">{{$bv->TENBAIVIET}}</div>
+						<div class="projcard-subtitle"></div>
+						<div class="projcard-bar"></div>
+						<div class="projcard-description">{{$bv->NOIDUNGTOMTAT}}</div>
+						<div class="projcard-tagbox">
+							<button class="snip1457 hover">Đọc thêm</button>
+						</div>
+					</div>
 				</div>
 			</div>
-		</div>
-	</div>
-	
-	
-	
-	<div class="projcard projcard-green">
-		<div class="projcard-innerbox">
-			<img class="projcard-img" src="https://picsum.photos/800/600?image=1039" />
-			<div class="projcard-textbox">
-				<div class="projcard-title">Tên bài viết</div>
-				<div class="projcard-subtitle"></div>
-				<div class="projcard-bar"></div>
-				<div class="projcard-description">Nội dung bài viết</div>
-				<div class="projcard-tagbox">
-					<button class="snip1457 hover">Đọc thêm</button>
+		@else
+			<div class="projcard projcard-green" link="{{URL::to("chi-tiet-bai-viet/$bv->id")}}">
+				<div class="projcard-innerbox">
+					<img class="projcard-img" src="{{ asset($bv->HinhAnh()->URL) }}" />
+					<div class="projcard-textbox">
+						<div class="projcard-title">{{$bv->TENBAIVIET}}</div>
+						<div class="projcard-subtitle"></div>
+						<div class="projcard-bar"></div>
+						<div class="projcard-description">{{$bv->NOIDUNGTOMTAT}}</div>
+						<div class="projcard-tagbox">
+							<button class="snip1457 hover">Đọc thêm</button>
+						</div>
+					</div>
 				</div>
 			</div>
-		</div>
-	</div>
-	
-	
+		@endif
+	@endforeach
 </div>
 @endsection
 @section('js')
 <script>
-document.querySelectorAll(".projcard-description").forEach(function(box) {
-	$clamp(box, {clamp: 6});
+// document.querySelectorAll(".projcard-description").forEach(function(box) {
+// 	$clamp(box, {clamp: 6});
+// });
+$(document).ready(function () {
+	$(".projcard").click(function (e) { 
+		window.location.href = $(this).attr("link");
+		
+	});
 });
 </script>
 @endsection

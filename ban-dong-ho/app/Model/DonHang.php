@@ -10,7 +10,7 @@ class DonHang extends Model
 {
     //
     public function User(){
-        return User::where("id",$this->MANGUOIDUNG)->first();
+        return User::withTrashed()->where("id",$this->MANGUOIDUNG)->first();
     }
     public function TongCong(){
         $ct_DongHang = CT_DonHang::where("SODONHANG",$this->id)->get();

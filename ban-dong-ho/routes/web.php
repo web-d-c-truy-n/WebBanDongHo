@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Whoops\Run;
 
@@ -33,13 +34,19 @@ Route::post('/xoa-gio-hang','HomeController@xoaGioHang');
 Route::get("/lay-quan-huyen/{maTinh}","DiaDiemController@layCacQuanHuyen");
 Route::get("/lay-phuong-xa/{maQuan}","DiaDiemController@layCacPhuongXa");
 Route::get('/blog','HomeController@blog');
-Route::get('chi-tiet-bai-viet','HomeController@blog_details');
+Route::get('chi-tiet-bai-viet/{id}','HomeController@blog_details');
 Route::get('thong-tin-tai-khoan','HomeController@information_account');
 Route::post('dat-hang','HomeController@ThanhToan');
 Route::get("dang-ky",'HomeController@DangKy');
 Route::post("dang-ky",'HomeController@DangKy');
 Route::get('admin/login','AdminController@login');
 Route::post('admin/admin_login', 'AdminController@Admin_Login');
+Route::post("/sua-tk",'Admin\UserController@suaThongTinUser');
+Route::get('dang-xuat',function(){
+    Auth::logout();
+    return redirect("/");
+});
+Route::post("/doi-mat-khau",'Admin\UserController@doiMatKhau');
 Route::group(['prefix' => 'admin', 'middleware' => ['admin']],function () {
     Route::get('/', 'AdminController@Index');
     Route::get('logout','AdminController@logout');
@@ -59,7 +66,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']],function () {
     Route::post('/them-sua-bai-viet','Admin\BaiVietController@themHoacSuaBaiViet');
     Route::get('/sua-bai-viet/{id}','AdminController@edit_blog');
     Route::post('/xoa-bai-viet','Admin\BaiVietController@xoaBaiViet');
-    Route::get('/chi-tiet-hoa-don','AdminController@order_details');
+    Route::get('/chi-tiet-hoa-don/{id}','AdminController@order_details');
+    Route::post('/doi-trang-thai','Admin\DonHangController@chuyenTrangThai');
+    Route::post("/xoa-tk",'Admin\UserController@xoaTK');
+    Route::post("/sua-tk",'Admin\UserController@suaThongTinUser');
+    Route::post("/dang-ky",'Admin\UserController@dangKy');
+    Route::post("/doi-mat-khau",'Admin\UserController@doiMatKhau');
 });
 
 Route::get('test', function(){

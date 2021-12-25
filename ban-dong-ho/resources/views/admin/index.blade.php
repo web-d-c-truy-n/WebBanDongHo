@@ -1,4 +1,8 @@
 @extends('admin.layout')
+@section('link')    
+    <li class="breadcrumb-item active" aria-current="page">Trang chủ</li>
+@endsection
+@section('active_trangchu','active')
 @section('css')
 @endsection
 @section('js')
@@ -16,7 +20,7 @@
               <div class="card-body">
                 <div class="row">
                   <div class="col">
-                    <h5 class="card-title text-uppercase text-muted mb-0">Total traffic</h5>
+                    <h5 class="card-title text-uppercase text-muted mb-0">Tổng quát</h5>
                     <span class="h2 font-weight-bold mb-0">350,897</span>
                   </div>
                   <div class="col-auto">
@@ -27,7 +31,7 @@
                 </div>
                 <p class="mt-3 mb-0 text-sm">
                   <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                  <span class="text-nowrap">Since last month</span>
+                  <span class="text-nowrap">Một tháng qua</span>
                 </p>
               </div>
             </div>
@@ -38,7 +42,7 @@
               <div class="card-body">
                 <div class="row">
                   <div class="col">
-                    <h5 class="card-title text-uppercase text-muted mb-0">New users</h5>
+                    <h5 class="card-title text-uppercase text-muted mb-0">Khách hàng mới</h5>
                     <span class="h2 font-weight-bold mb-0">2,356</span>
                   </div>
                   <div class="col-auto">
@@ -49,7 +53,7 @@
                 </div>
                 <p class="mt-3 mb-0 text-sm">
                   <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                  <span class="text-nowrap">Since last month</span>
+                  <span class="text-nowrap">Một tháng qua</span>
                 </p>
               </div>
             </div>
@@ -60,7 +64,7 @@
               <div class="card-body">
                 <div class="row">
                   <div class="col">
-                    <h5 class="card-title text-uppercase text-muted mb-0">Sales</h5>
+                    <h5 class="card-title text-uppercase text-muted mb-0">Đơn hàng</h5>
                     <span class="h2 font-weight-bold mb-0">924</span>
                   </div>
                   <div class="col-auto">
@@ -71,7 +75,7 @@
                 </div>
                 <p class="mt-3 mb-0 text-sm">
                   <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                  <span class="text-nowrap">Since last month</span>
+                  <span class="text-nowrap">Một tháng qua</span>
                 </p>
               </div>
             </div>
@@ -82,7 +86,7 @@
               <div class="card-body">
                 <div class="row">
                   <div class="col">
-                    <h5 class="card-title text-uppercase text-muted mb-0">Performance</h5>
+                    <h5 class="card-title text-uppercase text-muted mb-0">Lợi nhuận</h5>
                     <span class="h2 font-weight-bold mb-0">49,65%</span>
                   </div>
                   <div class="col-auto">
@@ -93,7 +97,7 @@
                 </div>
                 <p class="mt-3 mb-0 text-sm">
                   <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                  <span class="text-nowrap">Since last month</span>
+                  <span class="text-nowrap">Một tháng qua</span>
                 </p>
               </div>
             </div>
@@ -109,20 +113,20 @@
           <div class="card-header bg-transparent">
             <div class="row align-items-center">
               <div class="col">
-                <h6 class="text-light text-uppercase ls-1 mb-1">Overview</h6>
-                <h5 class="h3 text-white mb-0">Sales value</h5>
+                <h6 class="text-light text-uppercase ls-1 mb-1">Nhìn chung</h6>
+                <h5 class="h3 text-white mb-0">Đơn hàng</h5>
               </div>
               <div class="col">
                 <ul class="nav nav-pills justify-content-end">
                   <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales-dark" data-update="{&quot;data&quot;:{&quot;datasets&quot;:[{&quot;data&quot;:[0, 20, 10, 30, 15, 40, 20, 60, 60]}]}}" data-prefix="$" data-suffix="k">
                     <a href="#" class="nav-link py-2 px-3 active" data-toggle="tab">
-                      <span class="d-none d-md-block">Month</span>
+                      <span class="d-none d-md-block">Tháng</span>
                       <span class="d-md-none">M</span>
                     </a>
                   </li>
                   <li class="nav-item" data-toggle="chart" data-target="#chart-sales-dark" data-update="{&quot;data&quot;:{&quot;datasets&quot;:[{&quot;data&quot;:[0, 20, 5, 25, 10, 30, 15, 40, 40]}]}}" data-prefix="$" data-suffix="k">
                     <a href="#" class="nav-link py-2 px-3" data-toggle="tab">
-                      <span class="d-none d-md-block">Week</span>
+                      <span class="d-none d-md-block">Tuần</span>
                       <span class="d-md-none">W</span>
                     </a>
                   </li>
@@ -144,8 +148,8 @@
           <div class="card-header bg-transparent">
             <div class="row align-items-center">
               <div class="col">
-                <h6 class="text-uppercase text-muted ls-1 mb-1">Performance</h6>
-                <h5 class="h3 mb-0">Total orders</h5>
+                <h6 class="text-uppercase text-muted ls-1 mb-1">Lợi nhuận</h6>
+                <h5 class="h3 mb-0">Tổng đơn hàng</h5>
               </div>
             </div>
           </div>
@@ -164,10 +168,10 @@
           <div class="card-header border-0">
             <div class="row align-items-center">
               <div class="col">
-                <h3 class="mb-0">Page visits</h3>
+                <h3 class="mb-0">Truy cập nhiều</h3>
               </div>
               <div class="col text-right">
-                <a href="#!" class="btn btn-sm btn-primary">See all</a>
+                <a href="#!" class="btn btn-sm btn-primary">Tất cả</a>
               </div>
             </div>
           </div>
@@ -176,10 +180,10 @@
             <table class="table align-items-center table-flush">
               <thead class="thead-light">
                 <tr>
-                  <th scope="col">Page name</th>
-                  <th scope="col">Visitors</th>
-                  <th scope="col">Unique users</th>
-                  <th scope="col">Bounce rate</th>
+                  <th scope="col">Tên trang</th>
+                  <th scope="col">Khách hàng</th>
+                  <th scope="col">Thành viên</th>
+                  <th scope="col">Đánh giá</th>
                 </tr>
               </thead>
               <tbody>
@@ -263,10 +267,10 @@
           <div class="card-header border-0">
             <div class="row align-items-center">
               <div class="col">
-                <h3 class="mb-0">Social traffic</h3>
+                <h3 class="mb-0">Tổng quát</h3>
               </div>
               <div class="col text-right">
-                <a href="#!" class="btn btn-sm btn-primary">See all</a>
+                <a href="#!" class="btn btn-sm btn-primary">Tất cả</a>
               </div>
             </div>
           </div>
@@ -275,8 +279,8 @@
             <table class="table align-items-center table-flush">
               <thead class="thead-light">
                 <tr>
-                  <th scope="col">Referral</th>
-                  <th scope="col">Visitors</th>
+                  <th scope="col">Tiềm năng</th>
+                  <th scope="col">Thành viên</th>
                   <th scope="col"></th>
                 </tr>
               </thead>

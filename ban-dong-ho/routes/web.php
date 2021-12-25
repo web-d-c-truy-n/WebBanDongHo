@@ -43,10 +43,11 @@ Route::get('admin/login','AdminController@login');
 Route::post('admin/admin_login', 'AdminController@Admin_Login');
 Route::post("/sua-tk",'Admin\UserController@suaThongTinUser');
 Route::post("/loc-gia",'HomeController@locGia');
-Route::post('dang-xuat',function(){
+Route::get('dang-xuat',function(){
     Auth::logout();
     return redirect("/");
 });
+Route::post("/dang-ky",'Admin\UserController@dangKy');
 Route::post("/doi-mat-khau",'Admin\UserController@doiMatKhau');
 Route::group(['prefix' => 'admin', 'middleware' => ['admin']],function () {
     Route::get('/', 'AdminController@Index');

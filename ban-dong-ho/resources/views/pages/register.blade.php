@@ -772,24 +772,23 @@ input.checkbox:checked:after {
     <div class="main-agileinfo">
         <div class="agileits-top">
             <form action="#" method="post">
+              @csrf
                 <input class="text" type="text" name="HOTEN" placeholder="Họ tên" required="">
                 <input class="text" type="text" name="name" placeholder="Username" required="">
                 <input class="text email" type="email" name="email" placeholder="Email" required="">
-                <input class="text" type="tel" name="name" placeholder="Điện thoại" required="">
-                <input class="text" type="password" name="password" placeholder="Mật khẩu" required="">
-                <input class="text w3lpass" type="password" name="password" placeholder="Xác nhận mật khẩu" required="">
+                <input class="text" type="tel" name="SDT" placeholder="Điện thoại" required="">
+                <input class="text" type="password" name="password" placeholder="Mật khẩu" required="">                
                 <label for="gender"style="color:#fff; font-weight:100;margin-right:20px">Giới tính</label>
-                <div >
-                   
-                     <input type="radio"  name="fav_language" value="">
+                <div >                   
+                     <input type="radio"  name="GIOITINH" value="">
                 <label for="nam">Nam</label>
-                <input type="radio"  name="fav_language" value="">
+                <input type="radio"  name="GIOITINH" value="">
                 <label for="nu">Nữ</label>
                 </div>
-                <label for="birthday" style="color:#fff; font-weight:100;margin-right:20px">Ngày sinh</label><input type="date">
+                <label for="birthday" style="color:#fff; font-weight:100;margin-right:20px">Ngày sinh</label><input type="date" name="NGAYSINH">
                 <div class="wthree-text">
                     <label class="anim">
-                        <input type="checkbox" class="checkbox" required="">
+                        <input type="checkbox" class="checkbox" required>
                         <span>Đồng ý với điều khoản của cửa hàng</span>
                     </label>
                     <div class="clear"> </div>

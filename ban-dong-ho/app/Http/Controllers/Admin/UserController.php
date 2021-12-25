@@ -37,7 +37,11 @@ class UserController extends Controller
             $user["VAITRO"] = 1;
         }
         $user["password"] = md5($user["password"]);
-        User::create($user);
+        $u = User::create($user);
+        if(Auth::user()->VAITRO ?? 0 != 1){
+            Auth::login($u);
+            return redirect("/");
+        }
         return redirect("/admin");
     }    
     public function doiMatKhau(Request $request){

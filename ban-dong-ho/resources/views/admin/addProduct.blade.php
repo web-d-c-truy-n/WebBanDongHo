@@ -1,4 +1,9 @@
 @extends('admin.layout')
+@section('link')
+    <li class="breadcrumb-item active" aria-current="page"><a href="{{URL::to('admin/tat-ca-san-pham')}}">Sản phẩm</a> </li>
+    <li class="breadcrumb-item active" aria-current="page">Thêm sản phẩm</li>
+@endsection
+@section('active_sanPham','active')
 @section('css')
     <link rel="stylesheet" href="{{ asset('trumbowyg/dist/ui/trumbowyg.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/fonts/themify-icons-font/themify-icons/themify-icons.css') }}">

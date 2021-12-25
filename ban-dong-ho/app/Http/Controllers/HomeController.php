@@ -50,12 +50,13 @@ class HomeController extends Controller
         return view('pages.cart');
     }
     public function products(){
-        return view('pages.product');
+        $dsSanPham = SanPham::orderBy("created_at","DESC")->paginate(16);
+        return view('pages.product',["dsSanPham"=>$dsSanPham]);
     }
     public function listproducts($duongDan){
         $maTH = ThuongHieu::where("DUONGDAN",$duongDan)->first();
-        $dsSanPham = SanPham::where("MATHUONGHIEU",$maTH->id)->get();
-        return view('pages.listproducts',["dsSanPham"=>$dsSanPham,"th"=>$maTH]);
+        $dsSanPham = SanPham::where("MATHUONGHIEU",$maTH->id)->paginate(16);
+        return view('pages.product',["dsSanPham"=>$dsSanPham,"th"=>$maTH]);
     }
     public function information($duongDan){
         $sanPham = SanPham::where("DUONGDAN",$duongDan)->first();
@@ -157,5 +158,27 @@ class HomeController extends Controller
     }
     public function DangKy(){
         return view('pages.register');
+    }
+
+    public function locGia(Request $request){
+        $khoanGia = $request->khoanGia;
+        $thuongHieu = $request->thuongHieu;
+        $sanPham = null;     
+        $sanPham = SanPham::select("*")->where(function ($sanPham) use ($khoanGia){
+            foreach($khoanGia as $kg){              
+                $sanPham = $sanPham->orWhereBetween("GIAMGIA",[$kg["GiaDau"],$kg["GiaCuoi"]]);                 
+            }
+        });   
+        
+        
+        if($thuongHieu != ""){
+            $th = ThuongHieu::where("DUONGDAN",$thuongHieu)->first();
+            $sanPham = $sanPham->where("MATHUONGHIEU",$th->id);
+        }  
+        $sanPham = $sanPham->get();
+        foreach($sanPham as $sp){
+            $sp->HinhAnh = $sp->HinhAnh();
+        }
+        return response()->json(["sanPham"=>$sanPham]);
     }
 }

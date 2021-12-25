@@ -42,7 +42,8 @@ Route::post("dang-ky",'HomeController@DangKy');
 Route::get('admin/login','AdminController@login');
 Route::post('admin/admin_login', 'AdminController@Admin_Login');
 Route::post("/sua-tk",'Admin\UserController@suaThongTinUser');
-Route::get('dang-xuat',function(){
+Route::post("/loc-gia",'HomeController@locGia');
+Route::post('dang-xuat',function(){
     Auth::logout();
     return redirect("/");
 });

@@ -316,8 +316,7 @@ body {
 // });
 $(document).ready(function () {
 	$(".projcard").click(function (e) { 
-		window.location.href = $(this).attr("link");
-		
+		window.location.href = $(this).attr("link");		
 	});
 });
 </script>

@@ -145,7 +145,7 @@
                            <div class="row align-items-center">
                              <div class="col-auto">
                                <!-- Avatar -->
-                               <img alt="Avatar" src="http://localhost:8000/templateAdmin/assets/img/theme/team-1.jpg" class="avatar rounded-circle">
+                               <img alt="Avatar" src="{{asset('templateAdmin/assets/img/theme/team-1.jpg')}}" class="avatar rounded-circle">
                              </div>
                              <div class="col ml--2">
                                <div class="d-flex justify-content-between align-items-center">
@@ -164,7 +164,7 @@
                            <div class="row align-items-center">
                              <div class="col-auto">
                                <!-- Avatar -->
-                               <img alt="Image placeholder" src="../assets/img/theme/team-2.jpg" class="avatar rounded-circle">
+                               <img alt="Image placeholder" src="{{asset('templateAdmin/assets/img/theme/team-2.jpg')}}" class="avatar rounded-circle">
                              </div>
                              <div class="col ml--2">
                                <div class="d-flex justify-content-between align-items-center">
@@ -183,7 +183,7 @@
                            <div class="row align-items-center">
                              <div class="col-auto">
                                <!-- Avatar -->
-                               <img alt="Image placeholder" src="../assets/img/theme/team-3.jpg" class="avatar rounded-circle">
+                               <img alt="Image placeholder" src="{{asset('templateAdmin/assets/img/theme/team-3.jpg')}}" class="avatar rounded-circle">
                              </div>
                              <div class="col ml--2">
                                <div class="d-flex justify-content-between align-items-center">
@@ -202,7 +202,7 @@
                            <div class="row align-items-center">
                              <div class="col-auto">
                                <!-- Avatar -->
-                               <img alt="Image placeholder" src="../assets/img/theme/team-4.jpg" class="avatar rounded-circle">
+                               <img alt="Image placeholder" src="{{asset('templateAdmin/assets/img/theme/team-4.jpg')}}" class="avatar rounded-circle">
                              </div>
                              <div class="col ml--2">
                                <div class="d-flex justify-content-between align-items-center">
@@ -221,7 +221,7 @@
                            <div class="row align-items-center">
                              <div class="col-auto">
                                <!-- Avatar -->
-                               <img alt="Image placeholder" src="../assets/img/theme/team-5.jpg" class="avatar rounded-circle">
+                               <img alt="Image placeholder" src="{{asset('templateAdmin/assets/img/theme/team-5.jpg')}}" class="avatar rounded-circle">
                              </div>
                              <div class="col ml--2">
                                <div class="d-flex justify-content-between align-items-center">
@@ -292,7 +292,7 @@
                      <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                        <div class="media align-items-center">
                          <span class="avatar avatar-sm rounded-circle">
-                           <img alt="Image placeholder" src="http://localhost:8000/templateAdmin/assets/img/theme/team-4.jpg">
+                           <img alt="Image placeholder" src="{{asset('templateAdmin/assets/img/theme/team-4.jpg')}}">
                          </span>
                          <div class="media-body  ml-2  d-none d-lg-block">
                            <span class="mb-0 text-sm  font-weight-bold">{{Auth::user()->HOTEN}}</span>
@@ -384,16 +384,16 @@
          </div>
          <!-- Argon Scripts -->
          <!-- Core -->
-         <script src="http://localhost:8000/templateAdmin/assets/vendor/jquery/dist/jquery.min.js"></script>
-         <script src="http://localhost:8000/templateAdmin/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-         <script src="http://localhost:8000/templateAdmin/assets/vendor/js-cookie/js.cookie.js"></script>
-         <script src="http://localhost:8000/templateAdmin/assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-         <script src="http://localhost:8000/templateAdmin/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+         <script src="{{asset('templateAdmin/assets/vendor/jquery/dist/jquery.min.js')}}"></script>
+         <script src="{{asset('templateAdmin/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
+         <script src="{{asset('templateAdmin/assets/vendor/js-cookie/js.cookie.js')}}"></script>
+         <script src="{{asset('templateAdmin/assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js')}}"></script>
+         <script src="{{asset('templateAdmin/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js')}}"></script>
          <!-- Optional JS -->
-         <script src="http://localhost:8000/templateAdmin/assets/vendor/chart.js/dist/Chart.min.js"></script>
-         <script src="http://localhost:8000/templateAdmin/assets/vendor/chart.js/dist/Chart.extension.js"></script>
+         <script src="{{asset('templateAdmin/assets/vendor/chart.js/dist/Chart.min.js')}}"></script>
+         <script src="{{asset('templateAdmin/assets/vendor/chart.js/dist/Chart.extension.js')}}"></script>
          <!-- Argon JS -->
-         <script src="http://localhost:8000/templateAdmin/assets/js/argon.js?v=1.2.0"></script>
+         <script src="{{asset('templateAdmin/assets/js/argon.js?v=1.2.0')}}"></script>
        <!-- Code injected by live-server -->
        <script type="text/javascript">
          // <![CDATA[  <-- For SVG support

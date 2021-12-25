@@ -32,7 +32,7 @@
                 <div class="row">
                   <div class="col-6 collapse-brand">
                     <a href="{{URL::to('/admin/login')}}">
-                      <img src="../assets/img/brand/blue.png">
+                      <img src="{{asset('templateAdmin/assets/img/brand/blue.png')}}">
                     </a>
                   </div>
                   <div class="col-6 collapse-close">
@@ -139,13 +139,13 @@
         </footer>
         <!-- Argon Scripts -->
         <!-- Core -->
-        <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
-        <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="../assets/vendor/js-cookie/js.cookie.js"></script>
-        <script src="../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-        <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+        <script src="{{asset('templateAdmin/assets/vendor/jquery/dist/jquery.min.js')}}"></script>
+        <script src="{{asset('templateAdmin/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
+        <script src="{{asset('templateAdmin/assets/vendor/js-cookie/js.cookie.js')}}"></script>
+        <script src="{{asset('templateAdmin/assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js')}}"></script>
+        <script src="{{asset('templateAdmin/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js')}}"></script>
         <!-- Argon JS -->
-        <script src="../assets/js/argon.js?v=1.2.0"></script>
+        <script src="{{asset('templateAdmin/assets/js/argon.js?v=1.2.0')}}"></script>
       <!-- Code injected by live-server -->
       <script type="text/javascript">
           // <![CDATA[  <-- For SVG support

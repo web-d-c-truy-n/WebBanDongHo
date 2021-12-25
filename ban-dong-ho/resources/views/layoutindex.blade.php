@@ -256,8 +256,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="col-md-12">
                         <div class="ftr-menu" style="margin-top: -10px">
 							<ul>
-								<li><a href="http://localhost:8000/san-pham">SẢN PHẨM</a></li>
-								<li><a href="http://localhost:8000/blog">BLOG</a></li>
+								<li><a href="{{URL::to('/san-pham')}}">SẢN PHẨM</a></li>
+								<li><a href="{{URL::to('/blog')}}">BLOG</a></li>
 							   
 							</ul>
 						</div>

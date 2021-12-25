@@ -35,37 +35,37 @@
                  <!-- Nav items -->
                  <ul class="navbar-nav">
                    <li class="nav-item">
-                     <a class="nav-link active" href="{{URL::to('admin/')}}">
+                     <a class="nav-link @yield('active_trangchu')" href="{{URL::to('admin/')}}">
                        <i class="ni ni-tv-2 text-primary"></i>
                        <span class="nav-link-text">Trang chủ</span>
                      </a>
                    </li>
                    <li class="nav-item">
-                    <a class="nav-link" href="{{URL::to('/admin/blog')}}">
+                    <a class="nav-link @yield('active_baiViet')" href="{{URL::to('/admin/blog')}}">
                       <i class="ni ni-spaceship"></i>
                       <span class="nav-link-text">Bài viết</span>
                     </a>
                   </li>
                    <li class="nav-item">
-                     <a class="nav-link" href="{{URL::to('/admin/thanh-vien')}}">
+                     <a class="nav-link @yield('active_khachHang')" href="{{URL::to('/admin/thanh-vien')}}">
                        <i class="ni ni-planet text-orange"></i>
                        <span class="nav-link-text">Khách hàng</span>
                      </a>
                    </li>
                    <li class="nav-item">
-                     <a class="nav-link" href="{{URL::to('admin/tat-ca-san-pham')}}">
+                     <a class="nav-link @yield('active_sanPham')" href="{{URL::to('admin/tat-ca-san-pham')}}">
                        <i class="ni ni-pin-3 text-primary"></i>
                        <span class="nav-link-text">Sản phẩm</span>
                      </a>
                    </li>
                    <li class="nav-item">
-                     <a class="nav-link" href="{{URL::to('admin/thong-tin-ca-nhan')}}">
+                     <a class="nav-link @yield('active_ttCaNhan')" href="{{URL::to('admin/thong-tin-ca-nhan')}}">
                        <i class="ni ni-single-02 text-yellow"></i>
                        <span class="nav-link-text">Thông tin cá nhân</span>
                      </a>
                    </li>
                    <li class="nav-item">
-                     <a class="nav-link" href="{{URL::to('admin/order')}}">
+                     <a class="nav-link @yield('active_donHang')" href="{{URL::to('admin/order')}}">
                        <i class="ni ni-bullet-list-67 text-default"></i>
                        <span class="nav-link-text">Đơn hàng</span>
                      </a>
@@ -335,12 +335,11 @@
              <div class="header-body">
                <div class="row align-items-center py-4">
                  <div class="col-lg-6 col-7">
-                   <h6 class="h2 text-white d-inline-block mb-0">Default</h6>
                    <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                      <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                        <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
                        <li class="breadcrumb-item"><a href="#">Dashboards</a></li>
-                       <li class="breadcrumb-item active" aria-current="page">Default</li>
+                       @yield('link')
                      </ol>
                    </nav>
                  </div>

@@ -219,21 +219,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="col-md-4 cate-grid grid1">
 
 
-                        <a class="store" href="bicycles.html">Brand</a>
+                        <a class="store" href="{{URL::to("/danh-sach-san-pham/casio")}}">Casio</a>
                     </div>
                 </a>
                 <a href="bicycles.html">
                     <div class="col-md-4 cate-grid grid2">
 
 
-                        <a class="store" href="bicycles.html">Brand</a>
+                        <a class="store" href="{{URL::to("/danh-sach-san-pham/seiko")}}">Seiko</a>
                     </div>
                 </a>
                 <a href="bicycles.html">
                     <div class="col-md-4 cate-grid grid3">
 
 
-                        <a class="store" href="bicycles.html">Brand</a>
+                        <a class="store" href="{{URL::to("/danh-sach-san-pham/citizen")}}">Citizen</a>
                     </div>
                 </a>
                 <div class="clearfix"></div>

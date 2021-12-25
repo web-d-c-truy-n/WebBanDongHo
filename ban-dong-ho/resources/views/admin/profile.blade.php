@@ -1,4 +1,9 @@
 @extends('admin.layout')
+@section('link')
+    
+    <li class="breadcrumb-item active" aria-current="page">Thông tin cá nhân</li>
+@endsection
+@section('active_ttCaNhan','active')
 @section('renderbody')
     <div class="container-fluid mt--6">
         <div class="row">

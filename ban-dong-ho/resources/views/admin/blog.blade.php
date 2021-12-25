@@ -1,4 +1,9 @@
 @extends('admin.layout')
+@section('link')
+    
+    <li class="breadcrumb-item active" aria-current="page">Bài viết</li>
+@endsection
+@section('active_baiViet','active')
 @section('renderbody')
     <div class="container-fluid mt--6">
         <div class="row">

@@ -1,7 +1,12 @@
 @extends('admin.layout')
+@section('link')
+    
+    <li class="breadcrumb-item active" aria-current="page">Khách hàng</li>
+@endsection
 @section('css')
 
 @endsection
+@section('active_khachHang','active')
 @section('renderbody')
     <div class="container-fluid mt--6">
         <div class="row">

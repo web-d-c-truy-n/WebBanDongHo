@@ -1,4 +1,9 @@
 @extends('admin.layout')
+@section('link')
+    <li class="breadcrumb-item active" aria-current="page"><a href="{{URL::to('admin/order')}}">Đơn hàng</a> </li>
+    <li class="breadcrumb-item active" aria-current="page">Chi tiết đơn hàng</li>
+@endsection
+@section('active_donHang','active')
 @section('css')
     <style>
         @import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);

@@ -476,7 +476,7 @@
         <!-- Core -->
         <script src="{{ asset('templateAdmin/assets/vendor/jquery/dist/jquery.min.js') }}"></script>
         <script src="{{ asset('templateAdmin/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
-        {{-- <script src="{{ asset('templateAdmin/assets/vendor/js-cookie/js.cookie.js') }}"></script> --}}
+        <script src="{{ asset('templateAdmin/assets/vendor/js-cookie/js.cookie.js') }}"></script>
         <script src="{{ asset('templateAdmin/assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js') }}"></script>
         <script src="{{ asset('templateAdmin/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js') }}"></script>
         <!-- Optional JS -->

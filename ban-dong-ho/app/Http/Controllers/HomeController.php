@@ -50,7 +50,7 @@ class HomeController extends Controller
         return view('pages.cart');
     }
     public function products(){
-        $dsSanPham = SanPham::orderBy("created_at","DESC")->paginate(16);
+        $dsSanPham = SanPham::orderBy("created_at","DESC")->paginate(12);
         return view('pages.product',["dsSanPham"=>$dsSanPham]);
     }
     public function listproducts($duongDan){

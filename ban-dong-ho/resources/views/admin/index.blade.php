@@ -189,7 +189,7 @@
               <tbody>
                 <tr>
                   <th scope="row">
-                    /argon/
+                    Trang chủ
                   </th>
                   <td>
                     4,569
@@ -203,7 +203,7 @@
                 </tr>
                 <tr>
                   <th scope="row">
-                    /argon/index.html
+                    Sản phẩm
                   </th>
                   <td>
                     3,985
@@ -217,7 +217,7 @@
                 </tr>
                 <tr>
                   <th scope="row">
-                    /argon/charts.html
+                    Bài viết
                   </th>
                   <td>
                     3,513
@@ -231,7 +231,7 @@
                 </tr>
                 <tr>
                   <th scope="row">
-                    /argon/tables.html
+                    Thông tin tài khoản
                   </th>
                   <td>
                     2,050
@@ -245,7 +245,7 @@
                 </tr>
                 <tr>
                   <th scope="row">
-                    /argon/profile.html
+                    Đăng nhập
                   </th>
                   <td>
                     1,795

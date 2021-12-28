@@ -32,7 +32,7 @@ class Common{
         foreach($phuong as $p){
             array_push($diaDiem["phuongXa"],[
                 "name" => $p->name,
-                "value" => $p->maqh,
+                "value" => $p->xaid,
                 "selected" =>$p->xaid == $maHuyen
             ]);
         }

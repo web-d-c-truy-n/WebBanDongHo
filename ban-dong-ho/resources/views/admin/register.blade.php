@@ -28,7 +28,7 @@
                         <div class="text-center text-muted mb-4">
                             <small>Hoặc đăng kí</small>
                         </div>
-                        <form role="form" action="{{URL::to("admin/dang-ky")}}" method="POST">
+                        <form role="form" action="{{URL::to(!empty($install)?"install/dang-ky-admin":"admin/dang-ky")}}" method="POST">
 							@csrf
 							<div class="form-group">
                                 <div class="input-group input-group-merge input-group-alternative mb-3">

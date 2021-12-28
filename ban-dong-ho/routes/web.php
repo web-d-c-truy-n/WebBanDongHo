@@ -20,36 +20,38 @@ use Whoops\Run;
     return view('layoutindex');
 
 }); */
-
-Route::get('/','HomeController@index');
-Route::get('/gio-hang','HomeController@cart');
-Route::get('/san-pham','HomeController@products');
-Route::get('/thong-tin-san-pham/{duongDan}','HomeController@information');
-Route::get('/danh-sach-san-pham/{duongDan}','HomeController@listproducts');
-Route::get('/dang-nhap','HomeController@dangnhap');
-Route::post('/dang-nhap','LoginController@dangNhap');
-Route::post('/them-gio-hang','HomeController@themGioHang');
-Route::get('/thong-tin-don-hang','HomeController@order_information');
-Route::post('/xoa-gio-hang','HomeController@xoaGioHang');
-Route::get("/lay-quan-huyen/{maTinh}","DiaDiemController@layCacQuanHuyen");
-Route::get("/lay-phuong-xa/{maQuan}","DiaDiemController@layCacPhuongXa");
-Route::get('/blog','HomeController@blog');
-Route::get('chi-tiet-bai-viet/{id}','HomeController@blog_details');
-Route::get('thong-tin-tai-khoan','HomeController@information_account');
-Route::post('dat-hang','HomeController@ThanhToan');
-Route::get("dang-ky",'HomeController@DangKy');
-Route::post("dang-ky",'HomeController@DangKy');
-Route::get('admin/login','AdminController@login');
-Route::post('admin/admin_login', 'AdminController@Admin_Login');
-Route::post("/sua-tk",'Admin\UserController@suaThongTinUser');
-Route::post("/loc-gia",'HomeController@locGia');
-Route::get('dang-xuat',function(){
-    Auth::logout();
-    return redirect("/");
+Route::group(['prefix' => '', 'middleware' => ['unstall']],function () {
+    Route::get('/','HomeController@index');
+    Route::get('/gio-hang','HomeController@cart');
+    Route::get('/san-pham','HomeController@products');
+    Route::get('/thong-tin-san-pham/{duongDan}','HomeController@information');
+    Route::get('/danh-sach-san-pham/{duongDan}','HomeController@listproducts');
+    Route::get('/dang-nhap','HomeController@dangnhap');
+    Route::post('/dang-nhap','LoginController@dangNhap');
+    Route::post('/them-gio-hang','HomeController@themGioHang');
+    Route::get('/thong-tin-don-hang','HomeController@order_information');
+    Route::post('/xoa-gio-hang','HomeController@xoaGioHang');
+    Route::get("/lay-quan-huyen/{maTinh}","DiaDiemController@layCacQuanHuyen");
+    Route::get("/lay-phuong-xa/{maQuan}","DiaDiemController@layCacPhuongXa");
+    Route::get('/blog','HomeController@blog');
+    Route::get('chi-tiet-bai-viet/{id}','HomeController@blog_details');
+    Route::get('thong-tin-tai-khoan','HomeController@information_account');
+    Route::post('dat-hang','HomeController@ThanhToan');
+    Route::get("dang-ky",'HomeController@DangKy');
+    Route::post("dang-ky",'HomeController@DangKy');
+    Route::get('admin/login','AdminController@login');
+    Route::post('admin/admin_login', 'AdminController@Admin_Login');
+    Route::post("/sua-tk",'Admin\UserController@suaThongTinUser');
+    Route::post("/loc-gia",'HomeController@locGia');
+    Route::get('dang-xuat',function(){
+        Auth::logout();
+        return redirect("/");
+    });
 });
-Route::post("/dang-ky",'Admin\UserController@dangKy');
-Route::post("/doi-mat-khau",'Admin\UserController@doiMatKhau');
-Route::group(['prefix' => 'admin', 'middleware' => ['admin']],function () {
+
+Route::post("/dang-ky",'Admin\UserController@dangKy')->middleware("unstall");
+Route::post("/doi-mat-khau",'Admin\UserController@doiMatKhau')->middleware("unstall");
+Route::group(['prefix' => 'admin', 'middleware' => ['unstall','admin']],function () {
     Route::get('/', 'AdminController@Index');
     Route::get('logout','AdminController@logout');
     Route::get('register','AdminController@register');
@@ -74,14 +76,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']],function () {
     Route::post("/sua-tk",'Admin\UserController@suaThongTinUser');
     Route::post("/dang-ky",'Admin\UserController@dangKy');
     Route::post("/doi-mat-khau",'Admin\UserController@doiMatKhau');
+    Route::get("/backup","BackupController@Backup");
+    Route::post("/restore","BackupController@Restore");
 });
 
-Route::get('test', function(){
-    return view('test');
+Route::group(['prefix' => 'install', 'middleware' => ['install']],function () {
+    Route::get('wellcome', 'InstallController@Wellcome');   
+    Route::get('dang-ky-admin', 'InstallController@dkTaiKhoanMoi');   
+    Route::post('dang-ky-admin', 'InstallController@Install');   
+    Route::post('restore', 'InstallController@Restore');   
 });
-Route::prefix('ajax')->group(function () {
-    Route::post('restore', 'BackupController@Restore');   
-    Route::get('backup', 'BackupController@Backup');   
-});
-
 

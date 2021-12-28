@@ -17,9 +17,9 @@ class DbNhapCacTinhThanh extends Migration
     public function up()
     {
         //
-        if(Backup::$sql != null){
-            DB::unprepared(file_get_contents(storage_path("\\backup.sql")));
-            Backup::$sql = null;
+        if(Backup::$user != null){
+            User::create(Backup::$user);
+            Backup::$user = null;
         }            
         else{
             $user = new User();
@@ -32,10 +32,10 @@ class DbNhapCacTinhThanh extends Migration
             $user->password = md5("123456");
             $user->VAITRO = 1;
             $user->save();
-            DB::unprepared("set global net_buffer_length=1000000; 
-            set global max_allowed_packet=1000000000;");
-            DB::unprepared(file_get_contents(storage_path("\\don_vi_hanh_chinh.sql")));
         }
+        DB::unprepared("set global net_buffer_length=1000000; 
+        set global max_allowed_packet=1000000000;");
+        DB::unprepared(file_get_contents(storage_path("\\don_vi_hanh_chinh.sql")));
     }
 
     /**

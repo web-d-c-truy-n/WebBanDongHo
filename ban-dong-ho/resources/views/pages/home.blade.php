@@ -11,25 +11,9 @@
         <h3>POPULAR WATCHES</h3>
         <div class="bikes-grids">
             <div class="nbs-flexisel-container">
-                <div class="nbs-flexisel-inner">
-                    <ul id="flexiselDemo1" class="nbs-flexisel-ul" style="left: -321.667px; display: block;">
-                        <li class="nbs-flexisel-item" style="width: 321.667px;">
-                            <img src="images/bik3.jpg" alt="">
-                            <div class="bike-info">
-                                <div class="model">
-                                    <h4>ROCK HOVER<span>$300.00</span></h4>
-                                </div>
-                                <div class="model-info">
-                                    <a href="#">BUY</a>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="viw">
-                                <a href="bicycles.html">Quick View</a>
-                            </div>
-                        </li>
+                <div class="nbs-flexisel-inner row">
                         @foreach ($sanPhamMoi as $sp)
-                        <li class="nbs-flexisel-item" style="width: 321.667px;">
+                        <div class="nbs-flexisel-item col-md-3">
                             <img src="{{ asset($sp->HinhAnh()->URL) }}" alt="">
                             <div class="bike-info">
                                 <div class="model">
@@ -43,11 +27,9 @@
                             <div class="viw">
                                 <a href="{{URL::to("/thong-tin-san-pham/$sp->DUONGDAN")}}">Xem nhanh</a>
                             </div>
-                        </li>
+                        </div>
                         @endforeach
-                        
-                        
-                    </ul>
+
                     <div class="nbs-flexisel-nav-left" style="top: 174.5px;"></div>
                     <div class="nbs-flexisel-nav-right" style="top: 174.5px;"></div>
                 </div>

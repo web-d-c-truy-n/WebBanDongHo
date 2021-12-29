@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\DB;
+use App\Model\ThuongHieu;
 
 class InstallController extends Controller
 {
@@ -27,6 +28,13 @@ class InstallController extends Controller
         $user["VAITRO"] = 1;
         Backup::$user = $user;
         Artisan::call("migrate:refresh");
+        $cacThuongHieu = ["Casio","Seiko","SR","Daniel Wellington","Omega","Rolex","Orient","Citizen"];
+        foreach($cacThuongHieu as $th){
+            $thuongHieu = new ThuongHieu();
+            $thuongHieu->TENTHUONGHIEU = $th;
+            $thuongHieu->DUONGDAN = strtolower(str_replace(" ","-",$th));
+            $thuongHieu->save();
+        }
         Auth::loginUsingId(1);
         return redirect("/admin");
     }
